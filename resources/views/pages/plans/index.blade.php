@@ -20,9 +20,9 @@
                     <div class="card-body card2" style=" border-radius: 20px !important">
                         <div class="row text-white">
                             <div class="col-md-12">
-                                <h6 class="mb-0">SMART PLAN</h6>
-                                <p class="mt-0 mb-0 font-weight-bolder text-uppercase">Get two adverts every month</p>
-                                <p class="badge px-0" style="font-size: 11px"><i class="fa fa-check-circle text-success"></i> Enjoy one Insta Story every month</p>
+                                <h4 class="mb-0 param">SMART PLAN</h4>
+                                <p class="mt-0 mb-0 font-weight-bolder text-uppercase" style="font-size: 13px;">Get two adverts every month</p>
+                                <p class="badge px-0" style="font-size: 13px;"><i class="fa fa-check-circle text-success"></i> Enjoy one Insta Story every month</p>
                             </div>
                         </div>
                         <div class="d-flex mt-4 text-white align-items-end">
@@ -45,8 +45,8 @@
                     <div class="card-body card1" style=" border-radius: 20px !important">
                         <div class="row text-white">
                             <div class="col-md-12">
-                                <h6 class="mb-0">BASIC PLAN</h6>
-                                <p class="mt-0 font-weight-bolder text-uppercase">Manage only one advert forever</p>
+                                <h4 class="param">BASIC PLAN</h4>
+                                <p class="mt-0 font-weight-bolder text-uppercase" style="font-size: 13px;">Manage only one advert forever</p>
                             </div>
                         </div>
                         <div class="d-flex mt-4 text-white align-items-end">
