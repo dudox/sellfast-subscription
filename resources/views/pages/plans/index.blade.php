@@ -22,7 +22,7 @@
                             <div class="col-md-12">
                                 <h4 class="mb-0 param">SMART PLAN</h4>
                                 <p class="mt-0 mb-0 font-weight-bolder text-uppercase" style="font-size: 13px;">Get two adverts every month</p>
-                                <p class="badge px-0" style="font-size: 13px;"><i class="fa fa-check-circle text-success"></i> Enjoy one Insta Story every month</p>
+                                <p class="badge px-0 text-uppercase" style="font-size: 13px;">Enjoy one Insta Story every month</p>
                             </div>
                         </div>
                         <div class="d-flex mt-4 text-white align-items-end">
