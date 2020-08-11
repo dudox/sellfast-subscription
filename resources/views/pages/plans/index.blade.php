@@ -22,7 +22,7 @@
                             <div class="col-md-12">
                                 <h4 class="mb-0 param">SMART PLAN</h4>
                                 <p class="mt-0 mb-0 font-weight-bolder text-" style="font-size: 13px;">Get Two Adverts Every Month</p>
-                                <p class="badge px-0 text-" style="font-size: 13px;">Enjoy one Insta Story Every Eonth</p>
+                                <p class="badge px-0 text-" style="font-size: 13px;">Enjoy one Insta Story Every Month</p>
                             </div>
                         </div>
                         <div class="d-flex mt-4 text-white align-items-end">
@@ -46,7 +46,7 @@
                         <div class="row text-white">
                             <div class="col-md-12">
                                 <h4 class="param">BASIC PLAN</h4>
-                                <p class="mt-0 font-weight-bolder text-uppercase" style="font-size: 13px;">Manage only one advert forever</p>
+                                <p class="mt-0 font-weight-bolder text-" style="font-size: 13px;">Manage Only One Advert Forever</p>
                             </div>
                         </div>
                         <div class="d-flex mt-4 text-white align-items-end">
