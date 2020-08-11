@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-5">
             <div class="d-flex p-2 align-items-center">
-                <a href="{{ route('plans') }}" class="border shadow-sm py-1 px-4 m-0" style="border-radius: 5px">
+                <a href="{{ route('plans') }}" class="border py-1 px-4 m-0" style="border-radius: 5px">
                     <i class="fa fa-long-arrow-left fa-lg m-0 p-0  tempColor font-weight-light"></i>
                 </a>
                 <div class="ml-auto">

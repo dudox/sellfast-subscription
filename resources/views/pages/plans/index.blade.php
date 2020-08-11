@@ -22,7 +22,7 @@
                         <div class="row text-white">
                             <div class="col-md-12">
                                 <h6 class="mb-0">1. BASIC PLAN</h6>
-                                <p class="mt-0 font-weight-bolder ">ONE TIME PAYMENT ADVERTISEMENT PLAN</p>
+                                <p class="mt-0 font-weight-bolder ">ONE TIME PAYMENT PLAN</p>
                             </div>
                         </div>
                         <div class="d-flex mt-4 text-white align-items-end">
@@ -31,7 +31,7 @@
                                 <p class="mt-0 font-weight-bolder mb-0" style="font-size: 20px">NGN 500.00</p>
                             </div>
                             <div class="ml-auto justify-content-end">
-                                <a class="btn btn-dark rounded-pill transparent" style="font-size: 10px">Terms & Condition <i class="fa fa-long-arrow-right"></i></a>
+                                <a data-toggle="modal" data-target="#basicTC" class="btn btn-dark rounded-pill transparent" style="font-size: 10px">Terms & Condition <i class="fa fa-long-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -41,12 +41,12 @@
 
         <div class="row my-3">
             <div class="col-md-12">
-                <div class="card border-0 bg-back" >
+                <div class="card border-0 bg-back" data-link="{{ route('subscription') }}" >
                     <div class="card-body card2" style=" border-radius: 20px !important">
                         <div class="row text-white">
                             <div class="col-md-12">
                                 <h6 class="mb-0">2. PREMIUM PLAN</h6>
-                                <p class="mt-0 font-weight-bolder ">SUBSCRIPTION PAYMENT ADVERTISEMENT PLAN</p>
+                                <p class="mt-0 font-weight-bolder ">SUBSCRIPTION PAYMENT PLAN</p>
                             </div>
                         </div>
                         <div class="d-flex mt-4 text-white align-items-end">
@@ -55,14 +55,14 @@
                                 <p class="mt-0 font-weight-bolder mb-0" style="font-size: 20px">NGN 500.00</p>
                             </div>
                             <div class="ml-auto justify-content-end">
-                                <a class="btn btn-dark rounded-pill transparent" style="font-size: 10px">Terms & Condition <i class="fa fa-long-arrow-right"></i></a>
+                                <a  class="btn btn-dark rounded-pill transparent" style="font-size: 10px">Terms & Condition <i class="fa fa-long-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div style="position: absolute; width:100%; bottom: 5px" class="row">
+        <div style="position: absolute; width:100%; bottom: 5px" class="row mt-2">
             <div class="col-md-12 text-center">
                 <p class="font-weight-bolder">Powered by WorkPride</p>
             </div>
@@ -70,12 +70,22 @@
 
     </div>
 </div>
+<div id="basicTC" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Content</p>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('scripts')
 <script>
-    $('.bg-back').on('click', function(e){
-        if(e.currentTarget.dataset.link != undefined){
+    $('.bg-back:not(.btn)').on('click', function(e){
+        console.log(e);
+        if(!e.target.dataset.toggle || e.currentTarget.dataset.toggle != undefined){
             window.location.href = e.currentTarget.dataset.link;
         }
     });
