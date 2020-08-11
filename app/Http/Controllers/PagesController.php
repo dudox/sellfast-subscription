@@ -18,5 +18,9 @@ class PagesController extends Controller
         return view('pages.subscription.index');
     }
 
+    public function plans(){
+        return view('pages.plans.index');
+    }
+
 
 }
