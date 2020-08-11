@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('options');
+// Route::get('/', function () {
+//     return view('index');
+// })->name('options');
+Route::get('/', 'PagesController@plans')->name('plans');
 Route::get('basic-plan-monthly-payment', 'PagesController@basic')->name('basic');
 Route::get('subscription-plan-monthly-payment', 'PagesController@subscription')->name('subscription');
 
