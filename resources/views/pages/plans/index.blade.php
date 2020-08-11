@@ -22,7 +22,7 @@
                         <div class="row text-white">
                             <div class="col-md-12">
                                 <h6 class="mb-0">1. BASIC PLAN</h6>
-                                <p class="mt-0 font-weight-bolder ">ONE TIME PAYMENT PLAN</p>
+                                <p class="mt-0 font-weight-bolder text-uppercase">Get one adverts per month</p>
                             </div>
                         </div>
                         <div class="d-flex mt-4 text-white align-items-end">
@@ -46,7 +46,7 @@
                         <div class="row text-white">
                             <div class="col-md-12">
                                 <h6 class="mb-0">2. PREMIUM PLAN</h6>
-                                <p class="mt-0 font-weight-bolder ">SUBSCRIPTION PAYMENT PLAN</p>
+                                <p class="mt-0 font-weight-bolder ">Get two advert per month</p>
                             </div>
                         </div>
                         <div class="d-flex mt-4 text-white align-items-end">
