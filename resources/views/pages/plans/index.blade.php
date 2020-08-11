@@ -46,7 +46,7 @@
                         <div class="row text-white">
                             <div class="col-md-12">
                                 <h6 class="mb-0">2. PREMIUM PLAN</h6>
-                                <p class="mt-0 font-weight-bolder uppercase">Get two advert per month</p>
+                                <p class="mt-0 font-weight-bolder text-uppercase">Get two advert per month</p>
                             </div>
                         </div>
                         <div class="d-flex mt-4 text-white align-items-end">
