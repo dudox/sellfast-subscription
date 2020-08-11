@@ -30,7 +30,7 @@
                                 <p class="mt-0 font-weight-bolder mb-0" style="font-size: 20px">NGN 500.00</p>
                             </div>
                             <div class="ml-auto justify-content-end">
-                                <a  class="btn btn-dark rounded-pill transparent" style="font-size: 10px">Terms & Condition <i class="fa fa-long-arrow-right"></i></a>
+                                <a  class="btn  rounded-pill text-white" style="font-size: 12px">PROCEED <i class="fa fa-long-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                                 <p class="mt-0 font-weight-bolder mb-0" style="font-size: 20px">NGN 500.00</p>
                             </div>
                             <div class="ml-auto justify-content-end">
-                                <a data-toggle="modal" data-target="#basicTC" class="btn btn-dark rounded-pill transparent" style="font-size: 10px">Terms & Condition <i class="fa fa-long-arrow-right"></i></a>
+                                <a class="btn  rounded-pill text-white" style="font-size: 12px">PROCEED <i class="fa fa-long-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -84,9 +84,8 @@
 
 @section('scripts')
 <script>
-    $('.bg-back:not(.btn)').on('click', function(e){
-        console.log(e);
-        if(!e.target.dataset.toggle || e.currentTarget.dataset.toggle != undefined){
+    $('.bg-back').on('click', function(e){
+        if(e.currentTarget.dataset.link != undefined){
             window.location.href = e.currentTarget.dataset.link;
         }
     });
