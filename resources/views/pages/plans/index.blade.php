@@ -20,8 +20,9 @@
                     <div class="card-body card2" style=" border-radius: 20px !important">
                         <div class="row text-white">
                             <div class="col-md-12">
-                                <h6 class="mb-0">PREMIUM PLAN</h6>
-                                <p class="mt-0 font-weight-bolder text-uppercase">Get two adverts per month</p>
+                                <h6 class="mb-0">SMART PLAN</h6>
+                                <p class="mt-0 mb-0 font-weight-bolder text-uppercase">Get two adverts every month</p>
+                                <p class="badge px-0" style="font-size: 11px"><i class="fa fa-check-circle text-success"></i> Enjoy one Insta Story every month</p>
                             </div>
                         </div>
                         <div class="d-flex mt-4 text-white align-items-end">
@@ -45,7 +46,7 @@
                         <div class="row text-white">
                             <div class="col-md-12">
                                 <h6 class="mb-0">BASIC PLAN</h6>
-                                <p class="mt-0 font-weight-bolder text-uppercase">Get one advert per month</p>
+                                <p class="mt-0 font-weight-bolder text-uppercase">Manage only one advert forever</p>
                             </div>
                         </div>
                         <div class="d-flex mt-4 text-white align-items-end">
