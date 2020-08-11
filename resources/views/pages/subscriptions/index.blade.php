@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-3">
             <div class="row justify-content-center mt-2">
-                <img src="{{asset('img/logo.png')}}" style="width: 50px" alt="">
+                <img src="{{asset('img/logo.png')}}" style="width: 50px; height: 50px" alt="">
             </div>
             <div class="col-md-12 text-center">
                 <h4 class="text-uppercase font-weight-bolder mt-3">

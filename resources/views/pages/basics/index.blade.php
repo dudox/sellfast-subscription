@@ -10,8 +10,7 @@
                     <i class="fa fa-long-arrow-left fa-lg m-0 p-0  tempColor font-weight-light"></i>
                 </a>
                 <div class="ml-auto">
-                    <img src="{{asset('img/logo.png')}}" style="width: 50px" alt="">
-                </div>
+                    <img src="{{asset('img/logo.png')}}" style="width: 50px; height: 50px" alt="">                </div>
             </div>
             <div class="col-12 px-0">
                 <h4 class=" font-weight-bold mt-3">
