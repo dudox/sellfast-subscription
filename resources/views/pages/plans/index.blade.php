@@ -5,7 +5,7 @@
 <div class="row justify-content-center vh-100">
     <div class="col-md-5">
         <div class="row  my-3 ml-1">
-            <img src="{{asset('img/logo.png')}}" style="width: 70px" alt="">
+            <img src="{{asset('img/logo.png')}}" style="width: 70px; height: 70px" alt="">
         </div>
 
         <div class="row mt-3">
@@ -46,7 +46,7 @@
                         <div class="row text-white">
                             <div class="col-md-12">
                                 <h6 class="mb-0">2. PREMIUM PLAN</h6>
-                                <p class="mt-0 font-weight-bolder ">Get two advert per month</p>
+                                <p class="mt-0 font-weight-bolder uppercase">Get two advert per month</p>
                             </div>
                         </div>
                         <div class="d-flex mt-4 text-white align-items-end">
