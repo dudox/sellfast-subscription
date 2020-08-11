@@ -46,7 +46,7 @@
                         <div class="row text-white">
                             <div class="col-md-12">
                                 <h6 class="mb-0">2. PREMIUM PLAN</h6>
-                                <p class="mt-0 font-weight-bolder ">ONE TIME PAYMENT ADVERTISEMENT PLAN</p>
+                                <p class="mt-0 font-weight-bolder ">SUBSCRIPTION PAYMENT ADVERTISEMENT PLAN</p>
                             </div>
                         </div>
                         <div class="d-flex mt-4 text-white align-items-end">
@@ -62,14 +62,11 @@
                 </div>
             </div>
         </div>
-        <div class="row  " >
+        <div style="position: absolute; width:100%; bottom: 5px" class="row">
             <div class="col-md-12 text-center">
                 <p class="font-weight-bolder">Powered by WorkPride</p>
             </div>
         </div>
-
-
-
 
     </div>
 </div>
