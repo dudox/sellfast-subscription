@@ -41,22 +41,20 @@ class BasicController extends Controller
 
     public function successPage($receipt){
         return  '
-
         <div class=" vh-100">
 
             <div class="d-flex align-items-center vh-100">
-                <a href="'.route("options").'" class="border shadow-sm py-1 px-4 m-0 " style="border-radius: 5px; position: absolute; top: 5px; left:5px">
+                <a href="'.route("plans").'" class="border shadow-sm py-1 px-4 m-0 " style="border-radius: 5px; position: absolute; top: 5px; left:5px">
                     <i class="fa fa-times fa-lg m-0 p-0  tempColor font-weight-light"></i> Close
                 </a>
                 <div class="mx-auto px-3">
                     <img  src="'.asset("img/logo.png").'" class="center" style="width:80px" />
                     <h3 class="tempColor mt-3" style="font-weight: 900; font-size: 28px">Payment Successful!</h3>
-                    <p class="text-muted">Your payment approval is pending. Your payment token is <b class="badge badge-dark h2" style="font-size:20px">'.$receipt.'</b></p>
+                    <p class="text-muted">Your payment approval code is <b class="badge badge-dark h2" style="font-size:20px">'.$receipt.'</b></p>
                     <hr />
-                    <p class="font-weight-bold text-muted">Please click the button below to send payment token via WhatsApp for confirmation</p>
+                    <p class="font-weight-bold text-muted">Please click on the WhatsApp Link below to send us your code for confirmation.</p>
                     <a href="" class="btn btn-success btn-block">WhatsApp <i class="fa fa-whatsapp"></i></a>
-                    <span class="text-center d-block my-2"> OR </span>
-                    <a href="" class="btn btn-primary btn-block">Call Sellfast.ng <i class="fa fa-call"></i></a>
+
 
 
                 </div>

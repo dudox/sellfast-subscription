@@ -147,7 +147,7 @@
                             <div class="d-flex justify-content-end align-items-end">
                                 <div class="">
                                     <div class="badge badge-white text-uppercase">Total Amount</div><br/>
-                                    <label class="" style="font-size: 30px">$ 500.00</label>
+                                    <label class="" style="font-size: 30px">500.00</label>
                                 </div>
                                 <div class="ml-auto button text-center py-2 px-5 mb-4">CONTINUE <i class="fa fa-long-arrow-right"></i></div>
                             </div>
