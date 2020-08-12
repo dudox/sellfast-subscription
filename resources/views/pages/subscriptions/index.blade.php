@@ -4,13 +4,13 @@
 @section('contents')
 
     <div class="row justify-content-center">
-        <div class="col-md-3">
+        <div class="col-md-5">
             <div class="row justify-content-center mt-2">
                 <img src="{{asset('img/logo.png')}}" style="width: 50px; height: 50px" alt="">
             </div>
             <div class="col-md-12 text-center">
                 <h4 class="text-uppercase font-weight-bolder mt-3">
-                    subcription payment
+                    payment for instagram advert
                 </h4>
             </div>
 
@@ -22,15 +22,15 @@
                         <i class="fa fa-credit-card fa-3x font-weight-light" aria-hidden="true"></i>
                     </div>
                     <div class=" text-center ">
-                        <p class="param">CREDIT CARD</p>
+                        <p class="param">CARD PAYMENT</p>
                     </div>
                 </a>
-                <a class="col shadow-sm py-2 text-center option" data-type="bank transfer" rel="#bank" >
+                {{-- <a class="col shadow-sm py-2 text-center option" data-type="bank transfer" rel="#bank" >
                     <div class="icon text-center">
                         <i class="fa fa-bank fa-3x" aria-hidden="true"></i>
                     </div>
                     <div class="param text-center ">BANK TRANSFER</div>
-                </a>
+                </a> --}}
                 {{-- <a class="col shadow py-2 text-center option">
                     <div class="icon text-center">
                         <i class="fa fa-hashtag fa-lg" aria-hidden="true"></i>
@@ -43,25 +43,24 @@
 
                 <label class="my-2 text-uppercase" style="font-size: 13px"><i class="fa fa-check-circle-o text-success" aria-hidden="true"></i> <span class="font-weight-bolder">Method:</span> <span class="type"></span></label>
             </div>
-            <header class="credit tab_contents" id="card" style="display: none;">
+            <header class="credit tab_contents" id="card">
                 <div class="row">
                     <div class="col-md-12">
-                        <img src="{{asset('img/sample3.png')}}" style="width: 400px; margin-top: -20px" alt="">
-                        <img src="{{ asset('img/badge.png') }}" style="margin: -90px 0 0 0;" class="img-fluid" alt="">
+                        <img src="{{asset('img/sample3.png')}}" class="img-fluid" alt="">
                     </div>
-                    <div class="col-md-12">
-                        <h5>2. PLEASE ENTER YOUR INFORMATION</h5>
-                        <form method="POST" id="bank" action="{{ route('flutterwave') }}" data-type="card">
+                    <div class="col-md-12" style="margin-top: -120px">
+                        <h5 class="mb-3">2. REQUIRED INFORMATION </h5>
+                        <form method="POST" class="mt-2" id="bank" action="{{ route('flutterwave') }}" data-type="card">
                             @csrf
                             <div class="row">
                                 <div class="form-group col-md-12">
                                     <label for=""><i class="fa fa-user-o"></i> FULL NAME</label>
                                     <input type="text" name="fullname" class="form-control bg-gray" placeholder="" value="" required>
                                 </div>
-                                <div class="form-group col-md-12">
+                                {{-- <div class="form-group col-md-12">
                                     <label for=""><i class="fa fa-envelope"></i> EMAIL ADDRESS</label>
                                     <input type="text" name="email_address" class="form-control bg-gray" required>
-                                </div>
+                                </div> --}}
                                 <div class="form-group col-md-12">
                                     <label for=""><i class="fa fa-phone"></i> PHONE NUMBER</label>
                                     <input type="text" name="phone" class="form-control bg-gray" required>
@@ -83,7 +82,7 @@
                 </div>
 
             </header>
-            <header class="bank tab_contents" id="bank" style="display: none;">
+            {{-- <header class="bank tab_contents" id="bank" style="display: none;">
                 <div class="row">
                     <div class="col-6">
                         <img src="https://images.africanfinancials.com/ng-guaran-logo.png" class="img-fluid" alt="">
@@ -97,7 +96,7 @@
                     </div>
                     <div class="col-md-12">
                         <h5>2. PLEASE ENTER YOUR INFORMATION</h5>
-                        <form method="">
+                        <form method="" >
                             @csrf
                             <div class="row">
                                 <div class="form-group col-md-12">
@@ -155,7 +154,7 @@
                     </div>
                 </div>
 
-            </header>
+            </header> --}}
 
         </div>
     </div>

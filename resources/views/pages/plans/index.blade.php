@@ -64,21 +64,12 @@
         </div>
 
 
-        <div style="position: absolute; width:100%; bottom: 5px" class="row mt-2">
+        <div style="position: relative; width:100%; bottom: 5px" class="row mt-2">
             <div class="col-md-12 text-center">
                 <p class="font-weight-bolder">Powered by WorkPride</p>
             </div>
         </div>
 
-    </div>
-</div>
-<div id="basicTC" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <p>Content</p>
-            </div>
-        </div>
     </div>
 </div>
 @endsection
