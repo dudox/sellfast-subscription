@@ -18,7 +18,6 @@ class CreatePaymentsTable extends Migration
             $table->string('name');
             $table->string('insta_username');
             $table->string('phone_number');
-            $table->string('email_address')->nullable();
             $table->string('bank_name')->nullable();
             $table->string('proof')->nullable();
             $table->string('amount');

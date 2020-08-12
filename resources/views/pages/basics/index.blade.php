@@ -30,7 +30,7 @@
             <hr class="shadow-lg">
             <div class="d-flex shadow-sm selected-results my-2">
 
-                <label class="my-2 text-uppercase" style="font-size: 13px"><i class="fa fa-check-circle-o text-success" aria-hidden="true"></i> <span class="font-weight-bolder">Method:</span> <span class="type"></span></label>
+                <label class="my-2 text-uppercase" style="font-size: 13px"><i class="fa fa-check-circle-o text-success" aria-hidden="true"></i> <span class="font-weight-bolder">Method:</span> Bank Transfer</label>
             </div>
 
             <header class="bank tab_contents" id="bank" >
@@ -94,18 +94,19 @@
                                     <input type="file" class="form-control bg-gray" name="proof">
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-end align-items-end">
-                                <div class="">
+                            <div class="d-flex align-items-end">
+                                <div class="mb-0">
                                     <div class="badge badge-white text-uppercase">Total Amount</div><br/>
-                                    <label class="" style="font-size: 30px; letter-spacing: 0px">&#8358;500.00</label>
+                                    <label class="mb-0 tempColor" style="font-size: 30px; letter-spacing: 0px">&#8358; 500.00</label>
                                 </div>
-                                <button type="submit" class="btn ml-auto button text-center py-2 px-5 mb-4 text-white">CONTINUE <i class="fa fa-long-arrow-right"></i></button>
+                                <button type="submit" class="btn btn-success rounded-pill ml-auto  text-center px-4 mb-2 border-0">CONTINUE <i class="fa fa-long-arrow-right"></i></button>
                             </div>
                         </form>
                     </div>
                 </div>
 
             </header>
+            <hr>
             <div class="row mt-2">
                 <div class="col-md-12 text-center">
                     <p class="font-weight-bolder">Powered by WorkPride</p>

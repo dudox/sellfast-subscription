@@ -53,7 +53,7 @@ class BasicController extends Controller
                     <p class="text-muted">Your payment approval code is <b class="badge badge-dark h2" style="font-size:20px">'.$receipt.'</b></p>
                     <hr />
                     <p class="font-weight-bold text-muted">Please click on the WhatsApp Link below to send us your code for confirmation.</p>
-                    <a href="" class="btn btn-success btn-block">WhatsApp <i class="fa fa-whatsapp"></i></a>
+                    <a href="https://wa.me/2348127584647?text=Please%20kindly%20confirm%20my%20token%20number%20'.$receipt.'" class="btn btn-success btn-block">WhatsApp <i class="fa fa-whatsapp"></i></a>
 
 
 
