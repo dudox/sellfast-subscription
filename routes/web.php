@@ -23,7 +23,7 @@ Route::get('subscription-plan-monthly-payment', 'PagesController@subscription')-
 
 Route::post('basic-plan-monthly-payment', 'BasicController@store')->name('basic.store');
 
-Route::post('flutterwave', 'PagesController@flutterwave')->name('flutterwave');
+Route::post('flutterwave', 'SubscriptionController@payWithFlutterwave')->name('flutterwave');
 
 Auth::routes();
 

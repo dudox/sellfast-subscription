@@ -174,33 +174,41 @@
 @section('scripts')
 <script src="https://checkout.flutterwave.com/v3.js"></script>
 <script>
-    let logo = <?php json_encode(asset('img/logo.png')) ?>
+    let logo = "{{asset('img/logo.png')}}";
    $(document).ready(function(){
-    let tabs = $('a');
-    let result = document.getElementsByTagName('header');
-    $(tabs).on('click', function(e) {
-        let type = e.currentTarget.dataset.type;
-        var target = $(this.rel);
-        $('.tab_contents').not(target).hide();
-        $(this.rel +'.tab_contents').show();
-        $('a.option.active').removeClass('active');
-        $(this).addClass('active');
-        $(this.rel).addClass('active');
 
-        $(this.rel+ ' form').on('submit', function(e){
-            e.preventDefault();
-            let type = e.currentTarget.dataset.type;
-            var values = {};
-            $.each($('form').serializeArray(), function(i, field) {
-                values[field.name] = field.value;
-            });
-            if(type == "card"){
-                makePayment(values);
-                //console.log(values)
-            }
+    $('form').on('submit', function(e){
+        e.preventDefault();
+        var values = {};
+        $.each($('form').serializeArray(), function(i, field) {
+            values[field.name] = field.value;
+        });
+        makePayment(values);
 
-        })
-    });
+    })
+//     let tabs = $('a');
+//     let result = document.getElementsByTagName('header');
+//     $(tabs).on('click', function(e) {
+//         let type = e.currentTarget.dataset.type;
+//         var target = $(this.rel);
+//         $('.tab_contents').not(target).hide();
+//         $(this.rel +'.tab_contents').show();
+//         $('a.option.active').removeClass('active');
+//         $(this).addClass('active');
+//         $(this.rel).addClass('active');
+
+//         $('form').on('submit', function(e){
+//             e.preventDefault();
+//             let type = e.currentTarget.dataset.type;
+//             var values = {};
+//             $.each($('form').serializeArray(), function(i, field) {
+//                 values[field.name] = field.value;
+//             });
+
+//             makePayment(values);
+
+//         })
+//     });
    })
 
    function makePayment(e) {
@@ -217,7 +225,7 @@
         consumer_mac: "92a3-912ba-1192a",
       },
       customer: {
-        email: e.email_address,
+        email: "info@sellfast.ng",
         phone_number: e.phone,
         name: e.fullname,
       },
