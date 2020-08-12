@@ -10,11 +10,12 @@
                     <i class="fa fa-long-arrow-left fa-lg m-0 p-0  tempColor font-weight-light"></i>
                 </a>
                 <div class="ml-auto">
-                    <img src="{{asset('img/logo.png')}}" style="width: 50px; height: 50px" alt="">                </div>
+                    <img src="{{asset('img/logo.png')}}" style="width: 50px; height: 50px" alt="">
+                </div>
             </div>
             <div class="col-md-12 px-0">
-                <h4 class="text-uppercase font-weight-bolder mt-3 px-0 mx-0" style="font-size: 16px">
-                    payment for instagram advert
+                <h4 class="text-uppercase text-center font-weight-bolder mt-3 px-0 mx-0" style="font-size: 12px;">
+                    payment for instagram advert (&#8358; 600.00 ONLY)
                 </h4>
             </div>
 
@@ -52,8 +53,8 @@
                     <div class="col-md-12">
                         <img src="{{asset('img/sample3.png')}}" class="img-fluid" alt="">
                     </div>
-                    <div class="col-md-12" style="margin-top: -120px">
-                        <h5 class="mb-3">2. REQUIRED INFORMATION </h5>
+                    <div class="col-md-12" style="margin-top: -80px">
+                        <h5 class="mb-3 text-center" style="font-size: 9px">ENTER REQUIRED INFORMATION TO PROCEED</h5>
                         <form method="POST" class="mt-2" id="bank" action="{{ route('flutterwave') }}" data-type="card">
                             @csrf
                             <div class="row">
@@ -73,23 +74,31 @@
                                     <label for=""><i class="fa fa-instagram"></i> INSTAGRAM NAME / HANDLE</label>
                                     <input type="text" name="username" class="form-control bg-gray" required>
                                 </div>
+                                <div class="form-group col-md-12">
+                                    <label for=""><i class="fa fa-instagram"></i> CONFIRM INSTAGRAM NAME / HANDLE</label>
+                                    <input type="text" name="username" class="form-control bg-gray" required>
+                                </div>
                             </div>
                             <div class="d-flex align-items-end">
-                                <div class="mb-0">
+                                {{-- <div class="mb-0">
                                     <div class="badge badge-white text-uppercase">Total Amount</div><br/>
                                     <label class="mb-0 tempColor" style="font-size: 30px; letter-spacing: 0px">&#8358; 500.00</label>
-                                </div>
-                                <button type="submit" class="btn btn-success rounded-pill ml-auto  text-center px-4 mb-2 border-0">CONTINUE</button>
+                                </div> --}}
+                                <button type="submit" class="btn btn-success btn-block rounded-pill ml-auto  text-center px-4 mb-2 border-0">CONTINUE</button>
                             </div>
                         </form>
                     </div>
                 </div>
 
             </header>
-            <hr>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <img src="{{ asset('img/badge.png') }}" class="img-fluid" alt="">
+                </div>
+            </div>
             <div class="row mt-2">
                 <div class="col-md-12 text-center">
-                    <p class="font-weight-bolder">Powered by WorkPride</p>
+                    <p class="font-weight-bolder">Powered by WorkPride Limited</p>
                 </div>
             </div>
             {{-- <header class="bank tab_contents" id="bank" style="display: none;">

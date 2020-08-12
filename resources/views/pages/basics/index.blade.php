@@ -12,9 +12,9 @@
                 <div class="ml-auto">
                     <img src="{{asset('img/logo.png')}}" style="width: 50px; height: 50px" alt="">                </div>
             </div>
-            <div class="col-12 px-0">
-                <h4 class="text-uppercase font-weight-bolder mt-3 px-0 mx-0" style="font-size: 16px">
-                    payment for instagram advert
+            <div class="col-md-12 text-center">
+                <h4 class="text-uppercase font-weight-bolder mt-3 " style="font-size: 9px">
+                    transfer details for instagram advert (&#8358; 500.00 only)
                 </h4>
             </div>
             {{-- <div class="d-flex">
@@ -40,17 +40,16 @@
                     </div>
                     <div class="col-6">
 
-                        <label class="pt-2"><span class="font-weight-bold">BANK NAME:</span><br/> GUARANTEE TRUST</label>
+                        <label class="pt-2"><span class="font-weight-bold">BANK NAME:</span><br/> GTBANK</label>
                         <label><span class="font-weight-bold">ACCOUNT NUMBER:</span><br/> 0423982249</label>
-                        <label><span class="font-weight-bold">ACCOUNT NAME:</span><br/> WORKPRIDE LIMITED</label>
-                        <label style="font-size: 7px; color: #f26f24;" class="font-weight-bolder">POWERED BY SELLFAST.NG</label>
+                        <label><span class="font-weight-bold">ACCOUNT NAME:</span><br/> WORKPRIDE LIMITED <span style="font-size: 7px" class="font-weight-bolder">(OWNER OF SELLFAST.NG)</span></label>
                     </div>
                     <div class="col-md-12">
-                        <h5>2. PLEASE ENTER YOUR INFORMATION</h5>
+                        <h5 class="mb-3 text-center text-danger font-weight-bolder" style="font-size: 8px">COMPLETE FORM BELOW AFTER MAKING TRANSFER</h5>
                         <form method="post" action="{{ route('basic.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-                                <div class="form-group col-md-12">
+                                {{-- <div class="form-group col-md-12">
                                     <label for=""><i class="fa fa-user-o"></i> ACCOUNT FULL NAME</label>
                                     <input type="text" class="form-control bg-gray" name="name" placeholder="" value="" required>
                                 </div>
@@ -84,22 +83,26 @@
                                 <div class="form-group col-md-12">
                                     <label for=""><i class="fa fa-phone"></i> PHONE NUMBER</label>
                                     <input type="text" class="form-control bg-gray" name="phone" required>
-                                </div>
+                                </div> --}}
                                 <div class="form-group col-md-12">
                                     <label for=""><i class="fa fa-instagram"></i> INSTAGRAM NAME / HANDLE</label>
                                     <input type="text" class="form-control bg-gray" name="username" required>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for=""><i class="fa fa-camera"></i> EVIDENCE OF PAYMENT</label>
+                                    <label for=""><i class="fa fa-instagram"></i> CONFIRM INSTAGRAM NAME / HANDLE</label>
+                                    <input type="text" class="form-control bg-gray" name="username" required>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for=""><i class="fa fa-camera"></i> UPLOAD SCREENSHOT OF PAYMENT</label>
                                     <input type="file" class="form-control bg-gray" name="proof">
                                 </div>
                             </div>
                             <div class="d-flex align-items-end">
-                                <div class="mb-0">
+                                {{-- <div class="mb-0">
                                     <div class="badge badge-white text-uppercase">Total Amount</div><br/>
                                     <label class="mb-0 tempColor" style="font-size: 30px; letter-spacing: 0px">&#8358; 500.00</label>
-                                </div>
-                                <button type="submit" class="btn btn-success rounded-pill ml-auto  text-center px-4 mb-2 border-0">CONTINUE <i class="fa fa-long-arrow-right"></i></button>
+                                </div> --}}
+                                <button type="submit" class="btn btn-success btn-block ml-auto  text-center px-4 mb-2 border-0">CONTINUE <i class="fa fa-long-arrow-right"></i></button>
                             </div>
                         </form>
                     </div>
@@ -109,7 +112,7 @@
             <hr>
             <div class="row mt-2">
                 <div class="col-md-12 text-center">
-                    <p class="font-weight-bolder">Powered by WorkPride</p>
+                    <p class="font-weight-bolder">Powered by WorkPride Limited</p>
                 </div>
             </div>
         </div>

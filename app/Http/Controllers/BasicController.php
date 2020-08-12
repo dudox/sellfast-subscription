@@ -22,10 +22,10 @@ class BasicController extends Controller
             }
             $receipt = $this->get_rand_alphanumeric(8);
             Payments::create([
-                'name'=>request()->name,
+                // 'name'=>request()->name,
                 'insta_username'=>request()->username,
-                'phone_number'=>request()->phone,
-                'bank_name'=>request()->bank_name,
+                // 'phone_number'=>request()->phone,
+                // 'bank_name'=>request()->bank_name,
                 'proof'=>$image,
                 'amount'=>500,
                 'receiptID'=>$receipt

@@ -11,7 +11,7 @@
         <div class="row mt-3">
             <div class="col-md-12">
                 <p class="font-weight-bolder mb-0" style="font-size: 19px">Choose a plan</p>
-                <p class="text-muted">Flexible plans allows you to easily run your business ads with sellfast.ng</p>
+                <p class="text-muted">Select any of the plans below for your instagram advert placement</p>
             </div>
         </div>
         <div class="row">
@@ -21,14 +21,14 @@
                         <div class="row text-white">
                             <div class="col-md-12">
                                 <h4 class="mb-0 param">SMART PLAN</h4>
-                                <p class="mt-0 mb-0 font-weight-bolder text-" style="font-size: 13px;">Get Two Adverts Every Month</p>
-                                <p class="badge px-0 text-" style="font-size: 12px;">You Enjoy one Instagram Story Every Month</p>
+                                <p class="mt-0 mb-0 font-weight-bolder text-" style="font-size: 13px;">You get two adverts every month</p>
+                                <p class="badge px-0 text-" style="font-size: 12px;">You also enjoy one Instagram story every month</p>
                             </div>
                         </div>
                         <div class="d-flex mt-4 text-white align-items-end">
                             <div class="amount">
                                 <h6 class="mb-0">AMOUNT</h6>
-                                <p class="mt-0 font-weight-bolder mb-0" style="font-size: 20px">NGN 500.00</p>
+                                <p class="mt-0 font-weight-bolder mb-0" style="font-size: 20px">NGN 600.00</p>
                             </div>
                             <div class="ml-auto justify-content-end">
                                 <a  class="btn  rounded-pill text-white" style="font-size: 12px">PROCEED <i class="fa fa-long-arrow-right"></i></a>
@@ -46,7 +46,7 @@
                         <div class="row text-white">
                             <div class="col-md-12">
                                 <h4 class="param">BASIC PLAN</h4>
-                                <p class="mt-0 font-weight-bolder text-" style="font-size: 13px;">You Get Only One Advert</p>
+                                <p class="mt-0 font-weight-bolder text-" style="font-size: 13px;">You pay for only one advert</p>
                             </div>
                         </div>
                         <div class="d-flex mt-4 text-white align-items-end">
