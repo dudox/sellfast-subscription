@@ -5,10 +5,14 @@
 
     <div class="row justify-content-center">
         <div class="col-md-5">
-            <div class="row justify-content-center mt-2">
-                <img src="{{asset('img/logo.png')}}" style="width: 50px; height: 50px" alt="">
+            <div class="d-flex p-2 align-items-center">
+                <a href="{{ route('plans') }}" class="border py-1 px-4 m-0" style="border-radius: 5px">
+                    <i class="fa fa-long-arrow-left fa-lg m-0 p-0  tempColor font-weight-light"></i>
+                </a>
+                <div class="ml-auto">
+                    <img src="{{asset('img/logo.png')}}" style="width: 50px; height: 50px" alt="">                </div>
             </div>
-            <div class="col-md-12 text-center">
+            <div class="col-md-12">
                 <h4 class="text-uppercase font-weight-bolder mt-3">
                     payment for instagram advert
                 </h4>
@@ -17,7 +21,7 @@
 
             <h5 class="text-uppercase">1. Select your payment method</h5>
             <div class="d-flex">
-                <a class="col shadow-sm py-2 text-center option " data-type="credit card"  rel="#card">
+                <a class="col shadow-sm py-2 text-center option active" data-type="credit card"  rel="#card">
                     <div class="icon text-center">
                         <i class="fa fa-credit-card fa-3x font-weight-light" aria-hidden="true"></i>
                     </div>
@@ -41,7 +45,7 @@
             <hr class="shadow-lg">
             <div class="d-flex shadow-sm selected-results my-2">
 
-                <label class="my-2 text-uppercase" style="font-size: 13px"><i class="fa fa-check-circle-o text-success" aria-hidden="true"></i> <span class="font-weight-bolder">Method:</span> <span class="type"></span></label>
+                <label class="my-2 text-uppercase" style="font-size: 13px"><i class="fa fa-check-circle-o text-success" aria-hidden="true"></i> <span class="font-weight-bolder">How to make payment</span></label>
             </div>
             <header class="credit tab_contents" id="card">
                 <div class="row">
@@ -70,18 +74,24 @@
                                     <input type="text" name="username" class="form-control bg-gray" required>
                                 </div>
                             </div>
-                            <div class="d-flex align-items-bottom">
-                                <div class="">
+                            <div class="d-flex align-items-end">
+                                <div class="mb-0">
                                     <div class="badge badge-white text-uppercase">Total Amount</div><br/>
-                                    <label class="" style="font-size: 30px">$ 500.00</label>
+                                    <label class="mb-0 tempColor" style="font-size: 30px; letter-spacing: 0px">&#8358; 500.00</label>
                                 </div>
-                                <button type="submit" class="btn ml-auto button text-center py-2 px-5 border-0">CONTINUE</button>
+                                <button type="submit" class="btn btn-success rounded-pill ml-auto  text-center px-4 mb-2 border-0">CONTINUE</button>
                             </div>
                         </form>
                     </div>
                 </div>
 
             </header>
+            <hr>
+            <div class="row mt-2">
+                <div class="col-md-12 text-center">
+                    <p class="font-weight-bolder">Powered by WorkPride</p>
+                </div>
+            </div>
             {{-- <header class="bank tab_contents" id="bank" style="display: none;">
                 <div class="row">
                     <div class="col-6">
@@ -176,7 +186,6 @@
         $('a.option.active').removeClass('active');
         $(this).addClass('active');
         $(this.rel).addClass('active');
-        $('.type').html(type);
 
         $(this.rel+ ' form').on('submit', function(e){
             e.preventDefault();
