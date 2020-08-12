@@ -12,14 +12,14 @@
                 <div class="ml-auto">
                     <img src="{{asset('img/logo.png')}}" style="width: 50px; height: 50px" alt="">                </div>
             </div>
-            <div class="col-md-12">
-                <h4 class="text-uppercase font-weight-bolder mt-3">
+            <div class="col-md-12 px-0">
+                <h4 class="text-uppercase font-weight-bolder mt-3 px-0 mx-0" style="font-size: 16px">
                     payment for instagram advert
                 </h4>
             </div>
 
 
-            <h5 class="text-uppercase">1. Select your payment method</h5>
+            {{-- <h5 class="text-uppercase">1. Select your payment method</h5>
             <div class="d-flex">
                 <a class="col shadow-sm py-2 text-center option active" data-type="credit card"  rel="#card">
                     <div class="icon text-center">
@@ -40,13 +40,13 @@
                         <i class="fa fa-hashtag fa-lg" aria-hidden="true"></i>
                     </div>
                     <div class="param text-center ">USSD</div>
-                </a> --}}
-            </div>
-            <hr class="shadow-lg">
+                </a>
+            </div> --}}
+            {{-- <hr class="shadow-lg">
             <div class="d-flex shadow-sm selected-results my-2">
 
                 <label class="my-2 text-uppercase" style="font-size: 13px"><i class="fa fa-check-circle-o text-success" aria-hidden="true"></i> <span class="font-weight-bolder">How to make payment</span></label>
-            </div>
+            </div> --}}
             <header class="credit tab_contents" id="card">
                 <div class="row">
                     <div class="col-md-12">

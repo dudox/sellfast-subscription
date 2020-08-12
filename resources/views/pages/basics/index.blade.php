@@ -13,11 +13,11 @@
                     <img src="{{asset('img/logo.png')}}" style="width: 50px; height: 50px" alt="">                </div>
             </div>
             <div class="col-12 px-0">
-                <h4 class=" font-weight-bold mt-3">
-                    Basic Plan One Time Payment
+                <h4 class="text-uppercase font-weight-bolder mt-3 px-0 mx-0" style="font-size: 16px">
+                    payment for instagram advert
                 </h4>
             </div>
-            <div class="d-flex">
+            {{-- <div class="d-flex">
 
                 <a class="col shadow-sm py-2 text-center option active" data-type="bank transfer" rel="#bank" >
                     <div class="icon text-center">
@@ -26,12 +26,12 @@
                     <div class="param text-center ">BANK TRANSFER</div>
                 </a>
 
-            </div>
-            <hr class="shadow-lg">
+            </div> --}}
+            {{-- <hr class="shadow-lg">
             <div class="d-flex shadow-sm selected-results my-2">
 
                 <label class="my-2 text-uppercase" style="font-size: 13px"><i class="fa fa-check-circle-o text-success" aria-hidden="true"></i> <span class="font-weight-bolder">Method:</span> Bank Transfer</label>
-            </div>
+            </div> --}}
 
             <header class="bank tab_contents" id="bank" >
                 <div class="row">
