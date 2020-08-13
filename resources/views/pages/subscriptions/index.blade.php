@@ -181,7 +181,7 @@
 @endsection
 
 @section('scripts')
-<script src="https://checkout.flutterwave.com/v3.js"></script>
+<script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
 <script>
     let logo = "{{asset('img/logo.png')}}";
    $(document).ready(function(){
@@ -192,7 +192,7 @@
         $.each($('form').serializeArray(), function(i, field) {
             values[field.name] = field.value;
         });
-        makePayment(values);
+        payWithRave(values);
 
     })
 //     let tabs = $('a');
@@ -220,38 +220,40 @@
 //     });
    })
 
-   function makePayment(e) {
-    FlutterwaveCheckout({
-      public_key: "FLWPUBK_TEST-SANDBOXDEMOKEY-X",
-      tx_ref: "hooli-tx-1920bbtyt",
-      amount: 500,
-      currency: "NGN",
-      payment_options: "card",
-      redirect_url: // specified redirect URL
-        "https://callbacks.piedpiper.com/flutterwave.aspx?ismobile=34",
-      meta: {
-        consumer_id: 23,
-        consumer_mac: "92a3-912ba-1192a",
-      },
-      customer: {
-        email: "info@sellfast.ng",
-        phone_number: e.phone,
-        name: e.fullname,
-      },
-      callback: function (data) {
-        console.log(data);
-      },
-      onclose: function() {
-        // close modal
-      },
-      customizations: {
-        title: "Sellfast.ng Subscription",
-        description: "Payment for items in cart",
-        logo: logo,
-      },
-    });
-  }
+   const API_publicKey = "FLWPUBK_TEST-a5438ff3183cc3619a0c946625eac5bd-X";
 
+    function payWithRave(e) {
+        var x = getpaidSetup({
+            PBFPubKey: API_publicKey,
+            customer_email: "trybemark@gmail.com",
+            amount: 600,
+            customer_phone: e.phone,
+            customer_fullName: e.name,
+            currency: "NGN",
+            payment_method: "both",
+            txref: "rave-123456",
+            payment_plan: 6693,
+            meta: [{
+                metaname: "flightID",
+                metavalue: "AP1234"
+            }],
+            onclose: function() {},
+            callback: function(response) {
+                var txref = response.data.txRef; // collect flwRef returned and pass to a                   server page to complete status check.
+                console.log("This is the response returned after a charge", response);
+                if (
+                    response.data.chargeResponseCode == "00" ||
+                    response.data.chargeResponseCode == "0"
+                ) {
+                    // redirect to a success page
+                } else {
+                    // redirect to a failure page.
+                }
+
+                x.close(); // use this to close the modal immediately after payment.
+            }
+        });
+    }
 
 
 
