@@ -25,6 +25,20 @@ Route::post('basic-plan-monthly-payment', 'BasicController@store')->name('basic.
 
 Route::post('flutterwave', 'SubscriptionController@payWithFlutterwave')->name('flutterwave');
 
-Auth::routes();
+Route::group(['prefix' => 'control'], function () {
+    Route::get('/','HomeController@index')->name('dashboard');
+    Route::group(['prefix' => 'customers'], function () {
+        Route::get('/','HomeController@customersInfo')->name('customers');
+        Route::get('/handles','HomeController@handles')->name('customers.handles');
+    });
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::group(['prefix' => 'charts'], function () {
+
+        Route::post('revenue','HomeController@revenue')->name('charts.revenue');
+        Route::post('active/subscription','HomeController@active_subscription');
+        Route::post('active/progress','HomeController@plan_progress');
+        Route::post('compare/subscription','HomeController@compare_subscription');
+
+    });
+    Auth::routes();
+});

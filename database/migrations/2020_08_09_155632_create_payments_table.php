@@ -15,13 +15,10 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('insta_username');
-            $table->string('phone_number')->nullable();
-            $table->string('bank_name')->nullable();
+            $table->string('customer_id');
+            $table->string('plan_id');
             $table->string('proof')->nullable();
-            $table->string('amount');
-            $table->string('receiptID');
+            $table->string('token');
             $table->string('status')->default('pending');
             $table->timestamps();
         });

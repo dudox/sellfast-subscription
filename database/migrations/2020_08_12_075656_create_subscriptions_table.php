@@ -16,10 +16,10 @@ class CreateSubscriptionsTable extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
-            $table->string('receiptID');
-            $table->string('status')->default('active');
+            $table->string('payment_id');
             $table->string('due_on')->default(Carbon::now()->addMonth(1));
             $table->string('subscription_status')->default('active');
+            $table->string('auto_renewal')->default('active');
             $table->timestamps();
         });
     }

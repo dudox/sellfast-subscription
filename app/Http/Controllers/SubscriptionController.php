@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Throwable;
 use App\Payments;
+use App\Subscription;
 
 class SubscriptionController extends Controller
 {
@@ -19,7 +20,11 @@ class SubscriptionController extends Controller
                 'status'=>'approved'
             ]);
             if($payments){
-
+                Subscription::create([
+                    'receiptID'=>'',
+                    'referenceID'=>''
+                ]);
+                return response()->json(['status'=>'success'],200);
             }
         }
         catch(Throwable $th){

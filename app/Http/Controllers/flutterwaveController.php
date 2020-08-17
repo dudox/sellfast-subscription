@@ -14,6 +14,6 @@ class flutterwaveController extends Controller
     }
 
     public function handler(){
-        dd(request());
+
     }
 }

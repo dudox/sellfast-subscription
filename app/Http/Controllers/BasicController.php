@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Customers;
 use App\Payments;
 use Exception;
 use Illuminate\Http\Request;
@@ -13,6 +14,12 @@ class BasicController extends Controller
 {
     public function store(){
         try {
+            $custommer = Customers::where('username',request()->username)->first();
+            if(!$custommer){
+                $custommer = Customers::create([
+                    'username'=> request()->username
+                ]);
+            }
             $image = NULL;
             if(request()->hasFile('proof')){
                 $img = request()->file('proof');
@@ -21,15 +28,12 @@ class BasicController extends Controller
                 $image = 'uploads/'.$compressed->basename;
             }
             $receipt = $this->get_rand_alphanumeric(8);
+
             Payments::create([
-                // 'name'=>request()->name,
-                'insta_username'=>request()->username,
-                // 'phone_number'=>request()->phone,
-                // 'bank_name'=>request()->bank_name,
+                'userid'=>$custommer->id,
                 'proof'=>$image,
                 'amount'=>500,
                 'receiptID'=>$receipt
-
             ]);
 
             return response()->json(['status'=>200,'message'=>$this->successPage($receipt)]);
