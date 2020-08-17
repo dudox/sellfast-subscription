@@ -11,8 +11,7 @@ trait Analytics {
 
 
     public function total_users() {
-        $this->total =  Customers::groupBy('username')->orderBy('id','asc')->get();
-        return $this->total;
+       return Customers::with('subscription')->orderBy('id','asc')->get();
     }
 
     public function users_growth(){

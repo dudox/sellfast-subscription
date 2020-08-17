@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Customers;
 use App\Http\Traits\ActiveSubscription;
 use App\Http\Traits\CompareSubscription;
 use Illuminate\Http\Request;
@@ -54,7 +55,7 @@ class HomeController extends Controller
     }
 
     public function customersInfo(){
-        $customers = $this->customers();
+        $customers = Customers::with('subscription.plan')->orderBy('id','asc')->get();
         $progress = $this->progress();
         $subscription = $this->subscription();
         return view('controls.customers.index',compact('customers','progress','subscription'));

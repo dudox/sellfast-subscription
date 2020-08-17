@@ -2,6 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
+use App\Customers;
 use App\Model;
 use App\Payments;
 use App\Subscription;
@@ -13,16 +14,22 @@ $factory->define(Subscription::class, function (Faker $faker) {
         'active',
         'expired',
     );
+    $rand = mt_rand(1,2);
+    $call = "yes";
+    if($rand == 1){
+        $call = "no";
+    }
     shuffle($strings);
 
-    $startingDate = $faker->dateTimeThisYear('+1 month');
+    $startingDate = $faker->dateTimeBetween(Carbon::now()->startOfYear(), 'now');
     $endingDate   = strtotime('+1 Month', $startingDate->getTimestamp());
 
     return [
-        'payment_id'=>factory(Payments::class,3)->create(),
-        'due_on'=>$endingDate,
+        'customer_id'=>factory(Customers::class,3)->create(),
+        'plan_id'=>mt_rand(1,2),
+        'due_on'=>Carbon::parse($startingDate)->addMonth(1),
         'subscription_status'=>reset($strings),
-        'auto_renewal'=>'yes',
+        'auto_renewal'=>$call,
         'created_at'=>$startingDate
     ];
 });

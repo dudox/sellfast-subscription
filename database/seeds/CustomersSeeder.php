@@ -14,14 +14,16 @@ class CustomersSeeder extends Seeder
      */
     public function run()
     {
-        factory(Customers::class, 100)->create()->each(function($customer) {
+        factory(Customers::class, 200)->create()->each(function($customer) {
 
             $customer->payments()->saveMany(
                 factory(Payments::class,10)->create()->each(function($payment){
-                    $payment->subscription()->save(
-                        factory(Subscription::class)->make()
-                    );
-                })
+                    $payment->subscription()->make();
+                }),
+            );
+
+            $customer->subscription()->save(
+                factory(Subscription::class)->create(),
             );
 
         });

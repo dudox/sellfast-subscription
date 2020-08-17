@@ -44,25 +44,18 @@
                     <li class="nav-item nav-category">Details</li>
                     <li class="nav-item">
 
-                        <a class="nav-link" data-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
+                        <a class="nav-link"  href="#emails" role="button" aria-expanded="false" aria-controls="emails">
                             <i class="link-icon" data-feather="user"></i>
                             <span class="link-title">Customers</span>
-                            <i class="link-arrow" data-feather="chevron-down"></i>
                         </a>
-                        <div class="collapse" id="emails">
-                            <ul class="nav sub-menu">
-                                <li class="nav-item">
-                                    <a href="{{ route('customers') }}" class="nav-link">Users</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/email/read.html" class="nav-link">Instagram handles</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/email/compose.html" class="nav-link">Compose</a>
-                                </li>
-                            </ul>
-                        </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  href="#emails" role="button" aria-expanded="false" aria-controls="emails">
+                            <i class="link-icon" data-feather="instagram"></i>
+                            <span class="link-title">Instagram handles</span>
+                        </a>
+                    </li>
+
                     {{-- <li class="nav-item">
                         <a href="pages/apps/chat.html" class="nav-link">
                             <i class="link-icon" data-feather="message-square"></i>
@@ -329,8 +322,8 @@
                             <i class="link-icon" data-feather="hash"></i>
                             <span class="link-title">Documentation</span>
                         </a>
-                    </li>
-                     --}}
+                    </li> --}}
+
                 </ul>
             </div>
         </nav>
@@ -341,13 +334,13 @@
                     <i data-feather="settings"></i>
                 </a>
                 <div class="theme-wrapper">
-                    <h6 class="text-muted mb-2">Light Theme:</h6>
-                    <a class="theme-item" href="{{asset('demo_1/dashboard-one.html')}}">
-                        <img src="{{asset('assets/images/screenshots/light.jpg')}}" alt="light theme">
+                    <h6 class="text-muted mb-2">Homepage</h6>
+                    <a class="theme-item" href="{{ route('plans') }}">
+                        <img src="{{asset('assets/images/screenshots/home.png')}}" alt="light theme">
                     </a>
-                    <h6 class="text-muted mb-2">Dark Theme:</h6>
-                    <a class="theme-item active" href="{{asset('demo_2/dashboard-one.html')}}">
-                        <img src="{{asset('assets/images/screenshots/dark.jpg')}}" alt="light theme">
+                    <h6 class="text-muted mb-2">Dashboard:</h6>
+                    <a class="theme-item active" href="{{ route('dashboard')}}">
+                        <img src="{{asset('assets/images/screenshots/control.png')}}" alt="light theme">
                     </a>
                 </div>
             </div>
@@ -623,7 +616,7 @@
     <!-- end plugin js for this page -->
     <!-- inject:js -->
     <script src="{{asset('assets/vendors/feather-icons/feather.min.js')}}"></script>
-    {{-- <script src="{{asset('assets/js/template.js')}}"></script> --}}
+    <script src="{{asset('assets/js/template.js')}}"></script>
     <!-- endinject -->
     <!-- custom js for this page -->
     <script src="{{asset('assets/js/dashboard.js')}}"></script>

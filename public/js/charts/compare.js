@@ -67,7 +67,7 @@ if(data){
 }
 
 function xAxisLabel(e,$i,$item){
-    arr = new Array;
+    arr = [];
     if(e.type == "week"){
         arr.push(getDays($i),$item);
     }
@@ -75,9 +75,9 @@ function xAxisLabel(e,$i,$item){
         arr.push(getHours($i),$item);
     }
     if(e.type == "month"){
-        arr  = {'label':getMonths($i),'data':$item};
+        arr =$item;
     }
-    console.log(arr)
+    // console.log(arr)
     return arr;
 
 }
@@ -97,14 +97,13 @@ function getMonths($i){
 
 function compare(data1,data2){
     console.log(data1)
-     // Apex Line chart start
   var options = {
     chart: {
       height: 350,
       type: "line",
       parentHeightOffset: 0
     },
-    colors: ["#f77eb9", "#7ee5e5","#4d8af0"],
+    colors: [ "#7ee5e5","#f77eb9"],
     grid: {
       borderColor: "rgba(77, 138, 240, .1)",
       padding: {
@@ -114,17 +113,17 @@ function compare(data1,data2){
     series: [
       {
         name: "Active plan",
-        data: data1.data,
+        data: data1,
         color: "#fff"
       },
       {
         name: "Expired plan",
-        data: [12, 42, 68, 33]
+        data: data2
       },
     ],
     xaxis: {
-      type: "datetime",
-      categories: ["2015", "2016", "2017", "2018"]
+        type: datetime,
+        categories: ["Jan", "Feb", "Mar", "Apr","May","Jun","July","Aug","Sept","Oct","Nov","Dec"]
     },
     markers: {
       size: 0

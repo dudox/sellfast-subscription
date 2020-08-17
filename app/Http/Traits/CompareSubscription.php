@@ -59,8 +59,7 @@ trait CompareSubscription {
     function Cmonth($type){
         $active  =  DB::table('subscriptions')
         ->select(DB::raw('SUM(plans.amount) as total, MONTH(subscriptions.created_at) as month'))
-        ->join('payments', 'payments.id', '=', 'subscriptions.payment_id')
-        ->join('plans', 'plans.id', '=', 'payments.plan_id')
+        ->join('plans', 'plans.id', '=', 'subscriptions.plan_id')
         ->whereBetween('subscriptions.created_at',[Carbon::now()->startOfYear(), Carbon::now()->endOfYear()])
         ->where('subscription_status','active')
         ->groupBy('month')
@@ -68,8 +67,7 @@ trait CompareSubscription {
 
         $expired  =  DB::table('subscriptions')
         ->select(DB::raw('SUM(plans.amount) as total, MONTH(subscriptions.created_at) as month'))
-        ->join('payments', 'payments.id', '=', 'subscriptions.payment_id')
-        ->join('plans', 'plans.id', '=', 'payments.plan_id')
+        ->join('plans', 'plans.id', '=', 'subscriptions.plan_id')
         ->whereBetween('subscriptions.created_at',[Carbon::now()->startOfYear(), Carbon::now()->endOfYear()])
         ->where('subscription_status','expired')
         ->groupBy('month')
