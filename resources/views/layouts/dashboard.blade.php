@@ -615,7 +615,7 @@
     <script src="{{asset('assets/vendors/chartjs/Chart.min.js')}}"></script>
     <script src="{{asset('assets/vendors/jquery.flot/jquery.flot.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flot.tooltip/0.9.0/jquery.flot.tooltip.min.js"></script>
-    <script src="http://www.flotcharts.org/flot/source/jquery.flot.categories.js"></script>
+    <script src="https://www.flotcharts.org/flot/source/jquery.flot.categories.js"></script>
     <script src="{{asset('assets/vendors/jquery.flot/jquery.flot.resize.js')}}"></script>
     <script src="{{asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{asset('assets/vendors/apexcharts/apexcharts.min.js')}}"></script>
