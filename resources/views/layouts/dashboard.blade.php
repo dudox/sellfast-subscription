@@ -50,16 +50,16 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a   class="nav-link">
+                        <a href="{{ route('customers.handles') }}"  class="nav-link">
                             <i class="link-icon" data-feather="instagram"></i>
                             <span class="link-title">Instagram handles</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="pages/apps/calendar.html" class="nav-link">
-                            <i class="link-icon" data-feather="calendar"></i>
-                            <span class="link-title">Calendar</span>
+                        <a href="#" data-toggle="modal" data-target="#search" class="nav-link">
+                            <i class="link-icon" data-feather="search"></i>
+                            <span class="link-title">Search</span>
                         </a>
                     </li>
                     <li class="nav-item nav-category">Transactions</li>
@@ -462,23 +462,23 @@
                                 </div>
                                 <div class="dropdown-body">
                                     <div class="d-flex align-items-center apps">
-                                        <a href="pages/apps/chat.html"><i data-feather="home" class="icon-lg"></i>
+                                        <a href="{{ route('dashboard') }}"><i data-feather="home" class="icon-lg"></i>
                                             <p>Dashboard</p>
                                         </a>
-                                        <a href="pages/apps/chat.html"><i data-feather="users" class="icon-lg"></i>
+                                        <a href="{{ route('customers') }}"><i data-feather="users" class="icon-lg"></i>
                                             <p>Customers</p>
                                         </a>
-                                        <a href="pages/apps/calendar.html"><i data-feather="instagram" class="icon-lg"></i>
+                                        <a href="{{ route('customers.handles') }}"><i data-feather="instagram" class="icon-lg"></i>
                                             <p>Instagram</p>
                                         </a>
-                                        <a href="pages/email/inbox.html"><i data-feather="search" class="icon-lg"></i>
+                                        <a data-toggle="modal" data-target="#search"><i data-feather="search" class="icon-lg"></i>
                                             <p>Search</p>
                                         </a>
                                     </div>
                                 </div>
-                                <div class="dropdown-footer d-flex align-items-center justify-content-center">
+                                {{-- <div class="dropdown-footer d-flex align-items-center justify-content-center">
                                     <a href="javascript:;">View all</a>
-                                </div>
+                                </div> --}}
                             </div>
                         </li>
                         {{-- <li class="nav-item dropdown nav-messages">
@@ -623,12 +623,12 @@
                         </li> --}}
                         <li class="nav-item dropdown nav-profile">
                             <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="../assets/images/faces/face1.jpg" alt="profile">
+                                <img src="https://cdn1.iconfinder.com/data/icons/technology-devices-2/100/Profile-512.png" alt="profile">
                             </a>
                             <div class="dropdown-menu" aria-labelledby="profileDropdown">
                                 <div class="dropdown-header d-flex flex-column align-items-center">
                                     <div class="figure mb-3">
-                                        <img src="../assets/images/faces/face1.jpg" alt="">
+                                        <img src="https://cdn1.iconfinder.com/data/icons/technology-devices-2/100/Profile-512.png" alt="">
                                     </div>
                                     <div class="info text-center">
                                         <p class="name font-weight-bold mb-0">{{Auth::user()->name}}</p>
@@ -683,6 +683,27 @@
         </div>
     </div>
 
+    <div id="search" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="my-modal-title">Search <i style="width: 15px" data-feather="instagram"></i> username / payment code</h5>
+                    <button class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('control.search') }}" method="POST">
+                        @csrf
+                        <input type="text" class="form-control form-control-lg" name="data" id="" required>
+                        <button type="submit" class="btn btn-dark px-5 mt-2"><span data-feather="search"></span> Find</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="link" data-link="{{route('logout')}}"></div>
+
     <!-- core:js -->
     <script src="{{asset('assets/vendors/core/core.js')}}"></script>
     <!-- endinject -->
@@ -698,6 +719,7 @@
     <!-- end plugin js for this page -->
     <!-- inject:js -->
     <script src="{{asset('assets/vendors/feather-icons/feather.min.js')}}"></script>
+
     <script src="{{asset('assets/js/template.js')}}"></script>
     <!-- endinject -->
     <!-- custom js for this page -->

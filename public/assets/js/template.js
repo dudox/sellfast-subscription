@@ -7,16 +7,17 @@
     var footer = $('footer');
     var sidebar = $('.sidebar');
     var navbar = $('.navbar').not('.top-navbar');
+    var link = $("#link").data('link');
 
 
     // For Buy Now button.
     $("body").prepend('\
       <div class="buy-now-wrapper">\
-      <a href="" target="_blank" class="btn btn-primary text-white font-weight-bold btn-icon-text">\
+      <a href="#" data-target="#search" data-toggle="modal" class="btn btn-primary text-white font-weight-bold btn-icon-text">\
         <i class="btn-icon-prepend" data-feather="search"></i>\
         Search handle\
       </a>\
-        <a href="" target="_blank" class="btn btn-danger text-white font-weight-bold btn-icon-text">\
+        <a href="'+link+'" class="btn btn-danger text-white font-weight-bold btn-icon-text">\
         <i class="btn-icon-prepend" data-feather="cpu"></i> Logout\
         </a>\
       </div>\

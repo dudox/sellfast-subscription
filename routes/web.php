@@ -31,6 +31,7 @@ Route::group(['prefix' => 'control'], function () {
         Route::get('/','HomeController@customersInfo')->name('customers');
         Route::get('/handles','HomeController@handles')->name('customers.handles');
     });
+    Route::post('','HomeController@search')->name('control.search');
 
     Route::group(['prefix' => 'charts'], function () {
 

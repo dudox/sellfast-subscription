@@ -8,8 +8,10 @@ use App\Http\Traits\CompareSubscription;
 use Illuminate\Http\Request;
 use App\Http\Traits\Customers as Customer;
 use App\Http\Traits\Revenue;
+use App\Payments;
 use App\Subscription;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -70,7 +72,21 @@ class HomeController extends Controller
     }
 
     public function handles(){
+        $customers = Customers::with('subscription.plan')->orderBy('id','asc')->get();
+        return view('controls.customers.handles.index',compact('customers'));
+    }
 
+    public function search(Request $request){
+        $id = $request->data;
+        $customer = Customers::where('username',$id)->first();
+        if(!empty($customer)){
+            return view('controls.results.handles',compact('customer'));
+        }
+        $payment = Payments::where('token',$id)->first();
+        if(count($payments) > 0){
+            return view('controls.results.payments',compact('payment'));
+        }
+        return view('controls.results.notFound');
     }
 
     public function logout(){
