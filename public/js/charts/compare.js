@@ -114,7 +114,6 @@ function compare(data1,data2){
       {
         name: "Active plan",
         data: data1,
-        color: "#fff"
       },
       {
         name: "Expired plan",
@@ -122,8 +121,9 @@ function compare(data1,data2){
       },
     ],
     xaxis: {
-        type: datetime,
-        categories: ["Jan", "Feb", "Mar", "Apr","May","Jun","July","Aug","Sept","Oct","Nov","Dec"]
+        type: 'datetime',
+        categories: ["2020-01-01","2020-02-01","2020-03-01","2020-04-01","2020-05-01","2020-06-01","2020-07-01","2020-08-01","2020-09-01","2020-10-01","2020-11-01","2020-12-01"],
+
     },
     markers: {
       size: 0
@@ -139,6 +139,9 @@ function compare(data1,data2){
       horizontalAlign: 'left',
       containerMargin: {
         top: 30
+      },
+      labels: {
+        colors: '#fff',
       }
     },
     responsive: [
@@ -146,7 +149,8 @@ function compare(data1,data2){
         breakpoint: 500,
         options: {
           legend: {
-            fontSize: "11px"
+            fontSize: "11px",
+            color: '#fff'
           }
         }
       }

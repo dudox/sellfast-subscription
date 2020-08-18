@@ -73,15 +73,15 @@ trait CompareSubscription {
         ->groupBy('month')
         ->get();
 
-        $data1 = [0,0,0,0,0,0,0,0,0,0,0,0,0];
-        $data2 = [0,0,0,0,0,0,0,0,0,0,0,0,0];
+        $data1 = [0,0,0,0,0,0,0,0,0,0,0,0];
+        $data2 = [0,0,0,0,0,0,0,0,0,0,0,0];
 
         foreach($active as $key => $payment){
-            $data1[$payment->month] = $payment->total;
+            $data1[$payment->month -1] = $payment->total;
         }
 
         foreach($expired as $key => $payment){
-            $data2[$payment->month] = $payment->total;
+            $data2[$payment->month -1] = $payment->total;
         }
         return json_encode(['data1'=>$data1,'data2'=>$data2,'type'=>$type]);
     }

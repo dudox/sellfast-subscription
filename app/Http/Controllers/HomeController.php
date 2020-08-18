@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Traits\Customers as Customer;
 use App\Http\Traits\Revenue;
 use App\Subscription;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -66,6 +67,15 @@ class HomeController extends Controller
 
     public function compare_subscription(){
         return $this->compareInit(request()->date);
+    }
+
+    public function handles(){
+
+    }
+
+    public function logout(){
+         Auth::logout();
+         return redirect()->route('login');
     }
 
 

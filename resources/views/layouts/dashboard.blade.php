@@ -44,16 +44,98 @@
                     <li class="nav-item nav-category">Details</li>
                     <li class="nav-item">
 
-                        <a class="nav-link"  href="#emails" role="button" aria-expanded="false" aria-controls="emails">
+                        <a class="nav-link"  href="{{ route('customers') }}" >
                             <i class="link-icon" data-feather="user"></i>
                             <span class="link-title">Customers</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"  href="#emails" role="button" aria-expanded="false" aria-controls="emails">
+                        <a   class="nav-link">
                             <i class="link-icon" data-feather="instagram"></i>
                             <span class="link-title">Instagram handles</span>
                         </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="pages/apps/calendar.html" class="nav-link">
+                            <i class="link-icon" data-feather="calendar"></i>
+                            <span class="link-title">Calendar</span>
+                        </a>
+                    </li>
+                    <li class="nav-item nav-category">Transactions</li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false" aria-controls="uiComponents">
+                            <i class="link-icon" data-feather="feather"></i>
+                            <span class="link-title">UI Kit</span>
+                            <i class="link-arrow" data-feather="chevron-down"></i>
+                        </a>
+                        <div class="collapse" id="uiComponents">
+                            <ul class="nav sub-menu">
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/alerts.html" class="nav-link">Alerts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/badges.html" class="nav-link">Badges</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/breadcrumbs.html" class="nav-link">Breadcrumbs</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/buttons.html" class="nav-link">Buttons</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/button-group.html" class="nav-link">Button group</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/cards.html" class="nav-link">Cards</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/carousel.html" class="nav-link">Carousel</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/collapse.html" class="nav-link">Collapse</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/dropdowns.html" class="nav-link">Dropdowns</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/list-group.html" class="nav-link">List group</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/media-object.html" class="nav-link">Media object</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/modal.html" class="nav-link">Modal</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/navs.html" class="nav-link">Navs</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/navbar.html" class="nav-link">Navbar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/pagination.html" class="nav-link">Pagination</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/popover.html" class="nav-link">Popovers</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/progress.html" class="nav-link">Progress</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/scrollbar.html" class="nav-link">Scrollbar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/scrollspy.html" class="nav-link">Scrollspy</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/spinners.html" class="nav-link">Spinners</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/ui-components/tooltips.html" class="nav-link">Tooltips</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
 
                     {{-- <li class="nav-item">
@@ -368,10 +450,6 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="languageDropdown">
                                 <a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-us" title="us" id="us"></i> <span class="ml-1"> English </span></a>
-                                <a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-fr" title="fr" id="fr"></i> <span class="ml-1"> French </span></a>
-                                <a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-de" title="de" id="de"></i> <span class="ml-1"> German </span></a>
-                                <a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-pt" title="pt" id="pt"></i> <span class="ml-1"> Portuguese </span></a>
-                                <a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-es" title="es" id="es"></i> <span class="ml-1"> Spanish </span></a>
                             </div>
                         </li>
                         <li class="nav-item dropdown nav-apps">
@@ -380,22 +458,21 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="appsDropdown">
                                 <div class="dropdown-header d-flex align-items-center justify-content-between">
-                                    <p class="mb-0 font-weight-medium">Web Apps</p>
-                                    <a href="javascript:;" class="text-muted">Edit</a>
+                                    <p class="mb-0 font-weight-medium">Apps Shortcuts</p>
                                 </div>
                                 <div class="dropdown-body">
                                     <div class="d-flex align-items-center apps">
-                                        <a href="pages/apps/chat.html"><i data-feather="message-square" class="icon-lg"></i>
-                                            <p>Chat</p>
+                                        <a href="pages/apps/chat.html"><i data-feather="home" class="icon-lg"></i>
+                                            <p>Dashboard</p>
                                         </a>
-                                        <a href="pages/apps/calendar.html"><i data-feather="calendar" class="icon-lg"></i>
-                                            <p>Calendar</p>
+                                        <a href="pages/apps/chat.html"><i data-feather="users" class="icon-lg"></i>
+                                            <p>Customers</p>
                                         </a>
-                                        <a href="pages/email/inbox.html"><i data-feather="mail" class="icon-lg"></i>
-                                            <p>Email</p>
+                                        <a href="pages/apps/calendar.html"><i data-feather="instagram" class="icon-lg"></i>
+                                            <p>Instagram</p>
                                         </a>
-                                        <a href="pages/general/profile.html"><i data-feather="instagram" class="icon-lg"></i>
-                                            <p>Profile</p>
+                                        <a href="pages/email/inbox.html"><i data-feather="search" class="icon-lg"></i>
+                                            <p>Search</p>
                                         </a>
                                     </div>
                                 </div>
@@ -404,7 +481,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item dropdown nav-messages">
+                        {{-- <li class="nav-item dropdown nav-messages">
                             <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i data-feather="mail"></i>
                             </a>
@@ -543,7 +620,7 @@
                                     <a href="javascript:;">View all</a>
                                 </div>
                             </div>
-                        </li>
+                        </li> --}}
                         <li class="nav-item dropdown nav-profile">
                             <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src="../assets/images/faces/face1.jpg" alt="profile">
@@ -554,8 +631,8 @@
                                         <img src="../assets/images/faces/face1.jpg" alt="">
                                     </div>
                                     <div class="info text-center">
-                                        <p class="name font-weight-bold mb-0">Amiah Burton</p>
-                                        <p class="email text-muted mb-3">amiahburton@gmail.com</p>
+                                        <p class="name font-weight-bold mb-0">{{Auth::user()->name}}</p>
+                                        <p class="email text-muted mb-3">{{Auth::user()->email}}</p>
                                     </div>
                                 </div>
                                 <div class="dropdown-body">
@@ -587,6 +664,11 @@
                                     </ul>
                                 </div>
                             </div>
+                        </li>
+                        <li class="nav-item dropdown nav-apps">
+                            <a class="nav-link " href="{{ route('logout') }}"  aria-haspopup="true" aria-expanded="false">
+                                <i data-feather="power"></i>
+                            </a>
                         </li>
                     </ul>
                 </div>

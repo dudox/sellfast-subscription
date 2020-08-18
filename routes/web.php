@@ -41,4 +41,5 @@ Route::group(['prefix' => 'control'], function () {
 
     });
     Auth::routes();
+    Route::get('logout','HomeController@logout')->name('logout');
 });
