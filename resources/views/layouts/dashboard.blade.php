@@ -75,8 +75,8 @@
                             <span class="link-title">Bank transfer</span>
                         </a>
                     </li>
-                    <li class="nav-item"  href="{{ route('control.payments.pending') }}">
-                        <a class="nav-link">
+                    <li class="nav-item"  >
+                        <a class="nav-link" href="{{ route('control.payments.pending') }}">
                             <i class="link-icon" data-feather="stop-circle"></i>
                             <span class="link-title">Pending transactions</span>
                         </a>

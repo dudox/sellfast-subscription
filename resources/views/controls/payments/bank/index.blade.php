@@ -1,12 +1,12 @@
 
 @extends('layouts.dashboard')
-@section('title', 'Instagram handles')
+@section('title', 'Card payments')
 @section('content')
 <div class="page-content">
     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
-        <div>
+        {{-- <div>
             <h4 class="mb-3 mb-md-0">Welcome to Dashboard</h4>
-        </div>
+        </div> --}}
         <div class="d-flex align-items-center flex-wrap text-nowrap">
             <div class="input-group date datepicker dashboard-date mr-2 mb-2 mb-md-0 d-md-none d-xl-flex" id="dashboardDate">
                 <span class="input-group-addon bg-transparent"><i data-feather="calendar" class=" text-primary"></i></span>
@@ -31,8 +31,8 @@
 
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Customers</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Instagram handles</li>
+            <li class="breadcrumb-item"><a href="#">Payments</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Card payments history</li>
         </ol>
     </nav>
 
@@ -40,14 +40,18 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h6 class="card-title">Instagram handles</h6>
+                    <h6 class="card-title">Card payments</h6>
                     <div class="table-responsive">
                         <table id="dataTableExample" class="table">
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Username</th>
-                                    <th>Subscription status</th>
+                                    <th>Code</th>
+                                    <th>Plan name</th>
+                                    <th>Amount paid</th>
+                                    <th>Payment status</th>
+                                    <th>Payment date</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -55,19 +59,25 @@
                                 @php
                                     $count = 0;
                                 @endphp
-                                @if(count($customers) > 0)
-                                @foreach($customers as $item)
+                                @if(count($payments) > 0)
+                                @foreach($payments as $item)
                                 @php
                                     $count++;
                                 @endphp
                                 <tr>
                                     <td>{{$count}}</td>
-                                    <td>{{$item->username}}</td>
+                                    <td>{{$item->customer->username}}</td>
+                                    <td>#{{$item->token}}</td>
+                                    <td>{{ucfirst($item->plans->name ?? '')}} plan</td>
+                                    <td>{{$item->plans->amount ?? ''}}</td>
+                                    <td>@if($item->status == "approved") <span class="badge badge-success">{{$item->status}}</span> @else <span class="badge badge-warning">{{$item->status}}</span> @endif</td>
                                     <td>
                                         {{date("d M, Y",strtotime($item->created_at))}}
                                     </td>
                                     <td>
-                                        <button class="btn btn-primary btn-block btn-sm p-0" ><i class="link-icon" width="20" data-feather="maximize-2" style="font-size: 1px !important"></i></button>
+                                        @if($item->status == "pending")
+                                        <button class="btn btn-primary btn-block btn-sm p-0" ><i class="link-icon" width="20" data-feather="arrow-right-circle" style="font-size: 1px !important"></i></button>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach
