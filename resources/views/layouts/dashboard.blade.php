@@ -64,78 +64,42 @@
                     </li>
                     <li class="nav-item nav-category">Transactions</li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false" aria-controls="uiComponents">
-                            <i class="link-icon" data-feather="feather"></i>
-                            <span class="link-title">UI Kit</span>
-                            <i class="link-arrow" data-feather="chevron-down"></i>
+                        <a class="nav-link" href="{{ route('control.payments.card') }}">
+                            <i class="link-icon" data-feather="square"></i>
+                            <span class="link-title">Card payments</span>
                         </a>
-                        <div class="collapse" id="uiComponents">
-                            <ul class="nav sub-menu">
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/alerts.html" class="nav-link">Alerts</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/badges.html" class="nav-link">Badges</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/breadcrumbs.html" class="nav-link">Breadcrumbs</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/buttons.html" class="nav-link">Buttons</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/button-group.html" class="nav-link">Button group</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/cards.html" class="nav-link">Cards</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/carousel.html" class="nav-link">Carousel</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/collapse.html" class="nav-link">Collapse</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/dropdowns.html" class="nav-link">Dropdowns</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/list-group.html" class="nav-link">List group</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/media-object.html" class="nav-link">Media object</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/modal.html" class="nav-link">Modal</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/navs.html" class="nav-link">Navs</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/navbar.html" class="nav-link">Navbar</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/pagination.html" class="nav-link">Pagination</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/popover.html" class="nav-link">Popovers</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/progress.html" class="nav-link">Progress</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/scrollbar.html" class="nav-link">Scrollbar</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/scrollspy.html" class="nav-link">Scrollspy</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/spinners.html" class="nav-link">Spinners</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/ui-components/tooltips.html" class="nav-link">Tooltips</a>
-                                </li>
-                            </ul>
-                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  href="{{ route('control.payments.bank') }}">
+                            <i class="link-icon" data-feather="home"></i>
+                            <span class="link-title">Bank transfer</span>
+                        </a>
+                    </li>
+                    <li class="nav-item"  href="{{ route('control.payments.pending') }}">
+                        <a class="nav-link">
+                            <i class="link-icon" data-feather="stop-circle"></i>
+                            <span class="link-title">Pending transactions</span>
+                        </a>
+                    </li>
+                    <li class="nav-item nav-category">Plans</li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            <i class="link-icon" data-feather="zap"></i>
+                            <span class="link-title">Active subscription</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            <i class="link-icon" data-feather="zap-off"></i>
+                            <span class="link-title">Expired subscription</span>
+                        </a>
+                    </li>
+                    <li class="nav-item nav-category">Security</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('control.password') }}">
+                            <i class="link-icon" data-feather="lock"></i>
+                            <span class="link-title">Change password</span>
+                        </a>
                     </li>
 
                     {{-- <li class="nav-item">
@@ -433,14 +397,14 @@
                     <i data-feather="menu"></i>
                 </a>
                 <div class="navbar-content">
-                    <form class="search-form">
+                    <form class="search-form" method="POST" action="{{ route('control.search') }}">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
                                     <i data-feather="search"></i>
                                 </div>
                             </div>
-                            <input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
+                            <input type="text" class="form-control" name="data" id="navbarForm" placeholder="Search here...">
                         </div>
                     </form>
                     <ul class="navbar-nav">
@@ -638,25 +602,13 @@
                                 <div class="dropdown-body">
                                     <ul class="profile-nav p-0 pt-3">
                                         <li class="nav-item">
-                                            <a href="pages/general/profile.html" class="nav-link">
-                                                <i data-feather="user"></i>
-                                                <span>Profile</span>
+                                            <a href="{{ route('control.password') }}" class="nav-link">
+                                                <i data-feather="key"></i>
+                                                <span>Change password</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="javascript:;" class="nav-link">
-                                                <i data-feather="edit"></i>
-                                                <span>Edit Profile</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="javascript:;" class="nav-link">
-                                                <i data-feather="repeat"></i>
-                                                <span>Switch User</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="javascript:;" class="nav-link">
+                                            <a href="{{ route('logout') }}" class="nav-link">
                                                 <i data-feather="log-out"></i>
                                                 <span>Log Out</span>
                                             </a>

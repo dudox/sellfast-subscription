@@ -31,7 +31,16 @@ Route::group(['prefix' => 'control'], function () {
         Route::get('/','HomeController@customersInfo')->name('customers');
         Route::get('/handles','HomeController@handles')->name('customers.handles');
     });
-    Route::post('','HomeController@search')->name('control.search');
+    Route::post('search','HomeController@search')->name('control.search');
+    Route::get('password','HomeController@password')->name('control.password');
+    Route::post('password','HomeController@passsave')->name('control.password');
+
+    Route::group(['prefix' => 'payments'], function () {
+        Route::get('','PaymentsController@index')->name('control.payments');
+        Route::get('card','PaymentsController@card')->name('control.payments.card');
+        Route::get('bank','PaymentsController@bank')->name('control.payments.bank');
+        Route::get('pending','PaymentsController@pending')->name('control.payments.pending');
+    });
 
     Route::group(['prefix' => 'charts'], function () {
 

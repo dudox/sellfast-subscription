@@ -10,8 +10,10 @@ use App\Http\Traits\Customers as Customer;
 use App\Http\Traits\Revenue;
 use App\Payments;
 use App\Subscription;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -83,10 +85,32 @@ class HomeController extends Controller
             return view('controls.results.handles',compact('customer'));
         }
         $payment = Payments::where('token',$id)->first();
-        if(count($payments) > 0){
+        if(!empty($payment)){
             return view('controls.results.payments',compact('payment'));
         }
         return view('controls.results.notFound');
+    }
+
+    public function password(){
+        return view('controls.security.index');
+    }
+
+    public function passsave(){
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        if(Hash::check(request()->old, $user->password)){
+            if(request()->new == request()->confirm){
+                $password = Hash::make(request()->new);
+                $user->password = $password;
+                if($user->save()){
+                    return redirect()->back()->with(['message'=>'Password has been updated successfully','status'=>'saved']);
+                }
+            } else {
+                return redirect()->back()->withErrors(['message'=>'Your new password does not match confirm field','status'=>'match']);
+            }
+        } else {
+            return redirect()->back()->withErrors(['message'=>'Your old password is incorrect','status'=>'incorrect']);
+        }
     }
 
     public function logout(){
