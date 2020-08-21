@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Payments;
+use App\Subscription;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Throwable;
 
 class PaymentsController extends Controller
 {
@@ -25,5 +28,39 @@ class PaymentsController extends Controller
     public function pending(){
         $payments = Payments::with('plans','subscription','customer')->where('status','pending')->get();
         return view('controls.payments.pending.index',compact('payments'));
+    }
+
+    public function approve(){
+        try {
+            $payments = Payments::findOrFail(request()->id);
+            $payments->status = "approved";
+            $payments->save();
+
+            $subscription = Subscription::where('customer_id',$payments->customer_id)->first();
+            if(!empty($subscription)){
+                $subscription->plan_id = $payments->plan_id;
+                $subscription->due_on = Carbon::now()->addMonth(1);
+                $subscription->subscription_status = 'active';
+                $subscription->auto_renewal = 'no';
+                $subscription->save();
+
+                return redirect()->back()->with(['message'=>'Subscription has been renewed. Congratulations']);
+            }
+
+            $newSubscription = Subscription::create([
+                'customer_id'=>$payments->customer_id,
+                'plan_id'=>$payments->plan_id,
+                'due_on'=>Carbon::now()->addMonth(1),
+                'subscription_status'=>'active',
+                'auto_renewal'=>'no'
+            ]);
+
+            if($newSubscription){
+                return redirect()->back()->with(['message'=>'Subscription has been initiated. Congratulations']);
+            }
+        }
+        catch(Throwable $th){
+            throw $th;
+        }
     }
 }

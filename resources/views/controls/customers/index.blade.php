@@ -5,26 +5,22 @@
 <div class="page-content">
     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
         <div>
-            <h4 class="mb-3 mb-md-0">Welcome to Dashboard</h4>
+            <h4 class="mb-3 mb-md-0">Customers entries</h4>
         </div>
-        <div class="d-flex align-items-center flex-wrap text-nowrap">
-            <div class="input-group date datepicker dashboard-date mr-2 mb-2 mb-md-0 d-md-none d-xl-flex" id="dashboardDate">
-                <span class="input-group-addon bg-transparent"><i data-feather="calendar" class=" text-primary"></i></span>
-                <input type="text" class="form-control">
-            </div>
-            <button type="button" class="btn btn-outline-info btn-icon-text mr-2 d-none d-md-block">
+        {{-- <div class="d-flex align-items-center flex-wrap text-nowrap">
+            <button type="button" class="btn btn-outline-info btn-icon-text mr-2 d-none d-md-block" id="downloadPDF">
                 <i class="btn-icon-prepend" data-feather="download"></i>
-                Import
+                Export to pdf
             </button>
-            <button type="button" class="btn btn-outline-primary btn-icon-text mr-2 mb-2 mb-md-0">
-                <i class="btn-icon-prepend" data-feather="printer"></i>
-                Print
+            <button type="button" class="btn btn-outline-primary btn-icon-text mr-2 mb-2 mb-md-0" id="downloadEXCEL">
+                <i class="btn-icon-prepend" data-feather="paperclip"></i>
+                Export to excel
             </button>
-            <button type="button" class="btn btn-primary btn-icon-text mb-2 mb-md-0">
+            <button type="button" class="btn btn-primary btn-icon-text mb-2 mb-md-0" id="downloadCSV">
                 <i class="btn-icon-prepend" data-feather="download-cloud"></i>
-                Download Report
+                Download handles csv
             </button>
-        </div>
+        </div> --}}
     </div>
 
     <div class="row">
@@ -168,13 +164,13 @@
             <div class="card">
                 <div class="card-body">
                     <h6 class="card-title">Customers Lists</h6>
-                    <p class="card-description">Read the <a href="https://datatables.net/" target="_blank"> Official DataTables Documentation </a>for a full list of instructions and other options.</p>
                     <div class="table-responsive">
                         <table id="dataTableExample" class="table">
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Username</th>
+                                    <th>Phone</th>
                                     <th>Subscription status</th>
                                     <th>Active plan</th>
                                     <th>Expire on</th>
@@ -194,6 +190,7 @@
                                 <tr>
                                     <td>{{$count}}</td>
                                     <td>{{$item['username']}}</td>
+                                    <td>{{$item['phone']}}</td>
                                     <td>@if(!empty($item->subscription->subscription_status) && $item->subscription->subscription_status == 'active')
                                          <span class="badge badge-success">{{ $item->subscription->subscription_status }}</span>
                                          @elseif(!empty($item->subscription->subscription_status) && $item->subscription->subscription_status == 'expired')
@@ -206,7 +203,7 @@
                                     <td>@if(!empty($item->subscription->due_on)) {{date("D M, Y",strtotime($item->subscription->due_on))}} @else ... @endif</td>
                                     <td>{{$item->subscription->auto_renewal ?? '...'}}</td>
                                     <td>
-                                        <button class="btn btn-primary btn-block btn-sm p-0" ><i class="link-icon" width="20" data-feather="maximize-2" style="font-size: 1px !important"></i></button>
+                                        <button class="btn btn-primary btn-block btn-sm p-0" ><i class="link-icon" width="20" data-feather="arrow-right-circle" style="font-size: 1px !important"></i></button>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -223,34 +220,4 @@
 @endsection
 @section('scripts')
     <script src="{{ asset('js/charts/compare.js') }}"></script>
-    <script src="{{ asset('assets/vendors/datatables.net/jquery.dataTables.js')}}"></script>
-    <script src="{{ asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js')}}"></script>
-    <script>
-        $(function() {
-            'use strict';
-
-            $(function() {
-                $('#dataTableExample').DataTable({
-                "aLengthMenu": [
-                    [10, 30, 50, -1],
-                    [10, 30, 50, "All"]
-                ],
-                "iDisplayLength": 10,
-                "language": {
-                    search: ""
-                }
-                });
-                $('#dataTableExample').each(function() {
-                var datatable = $(this);
-                // SEARCH - Add the placeholder for Search and Turn this into in-line form control
-                var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
-                search_input.attr('placeholder', 'Search');
-                search_input.removeClass('form-control-sm');
-                // LENGTH - Inline-Form control
-                var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
-                length_sel.removeClass('form-control-sm');
-                });
-            });
-        });
-    </script>
 @endsection

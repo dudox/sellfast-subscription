@@ -31,4 +31,18 @@ class SubscriptionController extends Controller
             throw $th;
         }
     }
+
+    public function index(){
+        return view('controls.subscriptions.index');
+    }
+
+    public function active(){
+        $subscriptions = Subscription::with('customer','plan')->where('subscription_status','active')->get();
+        return view('controls.subscriptions.active.index',compact('subscriptions'));
+    }
+
+    public function expired(){
+        $subscriptions = Subscription::with('customer','plan')->where('subscription_status','expired')->get();
+        return view('controls.subscriptions.expired.index',compact('subscriptions'));
+    }
 }

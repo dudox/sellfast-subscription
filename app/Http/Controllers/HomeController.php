@@ -78,13 +78,18 @@ class HomeController extends Controller
         return view('controls.customers.handles.index',compact('customers'));
     }
 
+    public function phones(){
+        $customers = Customers::with('subscription.plan')->orderBy('id','asc')->get();
+        return view('controls.customers.phones.index',compact('customers'));
+    }
+
     public function search(Request $request){
         $id = $request->data;
         $customer = Customers::where('username',$id)->first();
         if(!empty($customer)){
             return view('controls.results.handles',compact('customer'));
         }
-        $payment = Payments::where('token',$id)->first();
+        $payment = Payments::with('customer','plans')->where('token',$id)->first();
         if(!empty($payment)){
             return view('controls.results.payments',compact('payment'));
         }

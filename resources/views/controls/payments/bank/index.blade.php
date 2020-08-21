@@ -4,10 +4,10 @@
 @section('content')
 <div class="page-content">
     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
-        {{-- <div>
-            <h4 class="mb-3 mb-md-0">Welcome to Dashboard</h4>
-        </div> --}}
-        <div class="d-flex align-items-center flex-wrap text-nowrap">
+        <div>
+            <h4 class="mb-3 mb-md-0">Bank transfer history</h4>
+        </div>
+        {{-- <div class="d-flex align-items-center flex-wrap text-nowrap">
             <div class="input-group date datepicker dashboard-date mr-2 mb-2 mb-md-0 d-md-none d-xl-flex" id="dashboardDate">
                 <span class="input-group-addon bg-transparent"><i data-feather="calendar" class=" text-primary"></i></span>
                 <input type="text" class="form-control">
@@ -24,7 +24,7 @@
                 <i class="btn-icon-prepend" data-feather="download-cloud"></i>
                 Download Report
             </button>
-        </div>
+        </div> --}}
     </div>
 
 
@@ -32,7 +32,7 @@
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Payments</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Card payments history</li>
+            <li class="breadcrumb-item active" aria-current="page">Bank transfer</li>
         </ol>
     </nav>
 
@@ -40,14 +40,14 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h6 class="card-title">Card payments</h6>
+                    <h6 class="card-title">Bank transfer payments</h6>
                     <div class="table-responsive">
                         <table id="dataTableExample" class="table">
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Username</th>
-                                    <th>Code</th>
+                                    <th>Payment code</th>
                                     <th>Plan name</th>
                                     <th>Amount paid</th>
                                     <th>Payment status</th>
@@ -69,15 +69,17 @@
                                     <td>{{$item->customer->username}}</td>
                                     <td>#{{$item->token}}</td>
                                     <td>{{ucfirst($item->plans->name ?? '')}} plan</td>
-                                    <td>{{$item->plans->amount ?? ''}}</td>
+                                    <td>@convert($item->plans->amount ?? 0)</td>
                                     <td>@if($item->status == "approved") <span class="badge badge-success">{{$item->status}}</span> @else <span class="badge badge-warning">{{$item->status}}</span> @endif</td>
                                     <td>
                                         {{date("d M, Y",strtotime($item->created_at))}}
                                     </td>
                                     <td>
-                                        @if($item->status == "pending")
-                                        <button class="btn btn-primary btn-block btn-sm p-0" ><i class="link-icon" width="20" data-feather="arrow-right-circle" style="font-size: 1px !important"></i></button>
-                                        @endif
+                                        <form action="{{ route('control.search') }}" method="GET">
+                                            @csrf
+                                            <input type="hidden" name="data" value="{{ $item->token }}">
+                                            <button type="submit" class="btn btn-primary btn-block btn-sm p-0" ><i class="link-icon" width="20" data-feather="arrow-right-circle" style="font-size: 1px !important"></i></button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -92,36 +94,4 @@
 
 </div>
 @endsection
-@section('scripts')
-    <script src="{{ asset('js/charts/compare.js') }}"></script>
-    <script src="{{ asset('assets/vendors/datatables.net/jquery.dataTables.js')}}"></script>
-    <script src="{{ asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js')}}"></script>
-    <script>
-        $(function() {
-            'use strict';
 
-            $(function() {
-                $('#dataTableExample').DataTable({
-                "aLengthMenu": [
-                    [10, 30, 50, -1],
-                    [10, 30, 50, "All"]
-                ],
-                "iDisplayLength": 10,
-                "language": {
-                    search: ""
-                }
-                });
-                $('#dataTableExample').each(function() {
-                var datatable = $(this);
-                // SEARCH - Add the placeholder for Search and Turn this into in-line form control
-                var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
-                search_input.attr('placeholder', 'Search');
-                search_input.removeClass('form-control-sm');
-                // LENGTH - Inline-Form control
-                var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
-                length_sel.removeClass('form-control-sm');
-                });
-            });
-        });
-    </script>
-@endsection

@@ -10,20 +10,26 @@
     <title>Sellfast - @yield('title')</title>
     <link rel="stylesheet" href="{{asset('assets/vendors/core/core.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">
     <link rel="stylesheet" href="{{asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/fonts/feather-font/css/iconfont.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendors/flag-icon-css/css/flag-icon.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/demo_2/style.css')}}">
-    <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" />
+    <link rel='shortcut icon' type='image/png' sizes='32x32' href='{{asset('img/logo.png')}}'>
 </head>
 
 <body>
+    <style>
+        .buttons-csv, .buttons-pdf, .buttons-excel {
+            display: none !important;
+        }
+    </style>
     <div class="main-wrapper">
 
         <!-- partial:partials/_sidebar.html -->
         <nav class="sidebar">
             <div class="sidebar-header">
-                <a href="#" class="sidebar-brand">
+                <a href="{{ route('dashboard') }}" class="sidebar-brand">
                     Sellfast<span>NG</span>
                 </a>
                 <div class="sidebar-toggler not-active">
@@ -57,6 +63,13 @@
                     </li>
 
                     <li class="nav-item">
+                        <a href="{{ route('customers.phones') }}"  class="nav-link">
+                            <i class="link-icon" data-feather="phone"></i>
+                            <span class="link-title">Customers phone</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a href="#" data-toggle="modal" data-target="#search" class="nav-link">
                             <i class="link-icon" data-feather="search"></i>
                             <span class="link-title">Search</span>
@@ -83,13 +96,13 @@
                     </li>
                     <li class="nav-item nav-category">Plans</li>
                     <li class="nav-item">
-                        <a class="nav-link">
+                        <a class="nav-link" href="{{ route('control.subscription.active') }}">
                             <i class="link-icon" data-feather="zap"></i>
                             <span class="link-title">Active subscription</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">
+                        <a class="nav-link" href="{{ route('control.subscription.expired') }}">
                             <i class="link-icon" data-feather="zap-off"></i>
                             <span class="link-title">Expired subscription</span>
                         </a>
@@ -397,7 +410,7 @@
                     <i data-feather="menu"></i>
                 </a>
                 <div class="navbar-content">
-                    <form class="search-form" method="POST" action="{{ route('control.search') }}">
+                    <form class="search-form" method="GET" action="{{ route('control.search') }}">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
@@ -645,7 +658,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('control.search') }}" method="POST">
+                    <form action="{{ route('control.search') }}" method="GET">
                         @csrf
                         <input type="text" class="form-control form-control-lg" name="data" id="" required>
                         <button type="submit" class="btn btn-dark px-5 mt-2"><span data-feather="search"></span> Find</button>
@@ -655,11 +668,7 @@
         </div>
     </div>
     <div id="link" data-link="{{route('logout')}}"></div>
-
-    <!-- core:js -->
     <script src="{{asset('assets/vendors/core/core.js')}}"></script>
-    <!-- endinject -->
-    <!-- plugin js for this page -->
     <script src="{{asset('assets/vendors/chartjs/Chart.min.js')}}"></script>
     <script src="{{asset('assets/vendors/jquery.flot/jquery.flot.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flot.tooltip/0.9.0/jquery.flot.tooltip.min.js"></script>
@@ -668,17 +677,78 @@
     <script src="{{asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{asset('assets/vendors/apexcharts/apexcharts.min.js')}}"></script>
     <script src="{{asset('assets/vendors/progressbar.js/progressbar.min.js')}}"></script>
-    <!-- end plugin js for this page -->
-    <!-- inject:js -->
     <script src="{{asset('assets/vendors/feather-icons/feather.min.js')}}"></script>
-
     <script src="{{asset('assets/js/template.js')}}"></script>
-    <!-- endinject -->
-    <!-- custom js for this page -->
     <script src="{{asset('assets/js/dashboard.js')}}"></script>
     <script src="{{asset('assets/js/datepicker.js')}}"></script>
+    <script src="{{ asset('assets/vendors/datatables.net/jquery.dataTables.js')}}"></script>
+    <script src="{{ asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js')}}"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script>
+        $(function() {
+            'use strict';
+
+            $(function() {
+                var table =$('#dataTableExample').DataTable({
+                "aLengthMenu": [
+                    [10, 30, 50, -1],
+                    [10, 30, 50, "All"]
+                ],
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'csv',
+
+                    },
+                    {
+                        extend: 'pdf',
+
+                    },
+                    {
+                        extend: 'excel',
+
+                    },
+
+
+                ],
+                "iDisplayLength": 10,
+                "language": {
+                    search: ""
+                }
+                });
+
+                $("#downloadCSV").on("click", function() {
+                    table.button( '.buttons-csv' ).trigger();
+                });
+                $("#downloadEXCEL").on("click", function() {
+                    table.button( '.buttons-excel' ).trigger();
+                });
+                $("#downloadPDF").on("click", function() {
+                    table.button( '.buttons-pdf' ).trigger();
+                });
+                $('#dataTableExample').each(function() {
+                var datatable = $(this);
+                // SEARCH - Add the placeholder for Search and Turn this into in-line form control
+                var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
+                search_input.attr('placeholder', 'Search');
+                search_input.removeClass('form-control-sm');
+                // LENGTH - Inline-Form control
+                var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
+                length_sel.removeClass('form-control-sm');
+
+
+                });
+
+            });
+        });
+
+
+    </script>
     @yield('scripts')
-    <!-- end custom js for this page -->
 </body>
 
 </html>

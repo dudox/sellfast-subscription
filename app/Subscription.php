@@ -9,8 +9,8 @@ class Subscription extends Model
     protected $fillable = ['receiptID','referenceID'];
 
 
-    public function payment(){
-        return $this->belongsTo(Payments::class, 'receiptID');
+    public function customer(){
+        return $this->belongsTo(Customers::class, 'customer_id');
     }
 
     public function plan(){

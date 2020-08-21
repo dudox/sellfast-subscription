@@ -18,7 +18,7 @@
         Search handle\
       </a>\
         <a href="'+link+'" class="btn btn-danger text-white font-weight-bold btn-icon-text">\
-        <i class="btn-icon-prepend" data-feather="cpu"></i> Logout\
+        <i class="btn-icon-prepend" data-feather="power"></i> Logout\
         </a>\
       </div>\
     ');
