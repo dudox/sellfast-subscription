@@ -11,7 +11,7 @@ trait Analytics {
 
 
     public function total_users() {
-       return Customers::with('subscription')->orderBy('id','asc')->get();
+       return Customers::with('subscription')->orderBy('id','desc')->get();
     }
 
     public function users_growth(){
@@ -51,6 +51,15 @@ trait Analytics {
         ->orderBy('payments.id','asc')
 
         ->where('payments.status','approved')->get();
+    }
+
+    public function paymentsD(){
+        return DB::table('payments')
+        ->selectRaw(' plans.name as planName, plans.amount as total, payments.token, payments.status, payments.updated_at, customers.name, customers.username')
+        ->join('plans','plans.id','payments.plan_id')
+        ->join('customers','customers.id','payments.customer_id')
+        ->orderBy('payments.id','desc')->get();
+
     }
 
     public function payments_growth(){

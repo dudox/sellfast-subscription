@@ -1,34 +1,91 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <link rel='icon' type='image/png' sizes='32x32' href='img/logo.png'>
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{asset('css/jquery-spinner.css')}}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <title>Sellfast - @yield('title')</title>
+        <link rel="stylesheet" href="{{asset('assets/vendors/core/core.css')}}">
+        <link rel="stylesheet" href="{{ asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">
+        <link rel="stylesheet" href="{{asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/fonts/feather-font/css/iconfont.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/vendors/flag-icon-css/css/flag-icon.min.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/demo_2/style.css')}}">
+        <link rel='shortcut icon' type='image/png' sizes='32x32' href='{{asset('img/logo.png')}}'>
+    </head>
 
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-</head>
 <body  >
-    <main id="container">
-        <div class="container" >
-            @yield('contents')
+    <style>
+        @keyframes spinner-line-fade-more {
+  0%, 100% {
+    opacity: 0; /* minimum opacity */
+  }
+  1% {
+    opacity: 1;
+  }
+}
+
+@keyframes spinner-line-fade-quick {
+  0%, 39%, 100% {
+    opacity: 0.25; /* minimum opacity */
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+@keyframes spinner-line-fade-default {
+  0%, 100% {
+    opacity: 0.22; /* minimum opacity */
+  }
+  1% {
+    opacity: 1;
+  }
+}
+
+@keyframes spinner-line-shrink {
+  0%, 25%, 100% {
+    /* minimum scale and opacity */
+    transform: scale(0.5);
+    opacity: 0.25;
+  }
+  26% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+    </style>
+    <main class="container">
+        <div class="page-wrapper" >
+            @yield('content')
+            <footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between">
+                <p class="text-muted text-center text-md-left">Copyright © 2020 <a href="https://www.workpride.net" target="_blank">Workpride</a>. All rights reserved</p>
+                <p class="text-muted text-center text-md-left mb-0 d-none d-md-block">SellfastNG <i class="mb-1 text-primary ml-1 icon-small" data-feather="heart"></i></p>
+            </footer>
         </div>
 
     </main>
 
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="{{asset('js/jquery-spinner.js')}}"></script>
+<div id="link" data-link="{{route('logout')}}"></div>
+<script src="{{asset('assets/vendors/core/core.js')}}"></script>
+<script src="{{asset('assets/vendors/chartjs/Chart.min.js')}}"></script>
+<script src="{{asset('assets/vendors/jquery.flot/jquery.flot.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flot.tooltip/0.9.0/jquery.flot.tooltip.min.js"></script>
+<script src="https://www.flotcharts.org/flot/source/jquery.flot.categories.js"></script>
+<script src="{{asset('assets/vendors/jquery.flot/jquery.flot.resize.js')}}"></script>
+<script src="{{asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+<script src="{{asset('assets/vendors/apexcharts/apexcharts.min.js')}}"></script>
+<script src="{{asset('assets/vendors/progressbar.js/progressbar.min.js')}}"></script>
+<script src="{{asset('assets/vendors/feather-icons/feather.min.js')}}"></script>
+<script src="{{asset('assets/js/ja.js')}}"></script>
+<script src="{{asset('assets/js/dashboard.js')}}"></script>
+<script src="{{asset('assets/js/datepicker.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
 
 
     @yield('scripts')

@@ -250,7 +250,7 @@
                             @foreach($customers->data->descU as $user)
                             <a href="#" class="d-flex align-items-center border-bottom py-2 ">
                                 <div class="mr-3">
-                                    <img src="../assets/images/faces/face2.jpg" class="rounded-circle wd-35" alt="user">
+                                    <img src="{{asset('img/logo.png')}}" class="rounded-circle wd-35" alt="user">
                                 </div>
                                 <div class="w-100">
                                     <div class="d-flex justify-content-between">
@@ -265,7 +265,8 @@
                             </a>
                             @endforeach
                         </div>
-                        <button class="btn btn-primary btn-block">Review active users</button>
+                        <br/>
+                        <button class="btn btn-primary btn-block mt-4  ">Review active users</button>
                     </div>
                 </div>
             </div>
@@ -285,6 +286,7 @@
                                         <th class="pt-0">Status</th>
                                         <th class="pt-0">Type</th>
                                         <th class="pt-0">Token</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -296,16 +298,29 @@
                                         <td>{{$count++}}</td>
                                         <td>{{ $value->username }}</td>
                                         <td>{{ $value->updated_at }}</td>
-                                        <td><span class="badge badge-success">{{$value->status}}</span></td>
+                                        <td>
+                                            @if($value->status == "pending")
+                                            <span class="badge badge-warning">{{$value->status}}</span>
+                                            @else
+                                            <span class="badge badge-success">{{$value->status}}</span>
+                                            @endif
+                                        </td>
                                         <td>{{ucfirst($value->planName)}} Plan</td>
                                         <td>#{{ucfirst($value->token)}}</td>
+                                        <td>
+                                            <form action="{{ route('control.search') }}" method="GET">
+                                                @csrf
+                                                <input type="hidden" name="data" value="{{ $value->token }}">
+                                                <button type="submit" class="btn btn-primary btn-block btn-sm p-0" ><i class="link-icon" width="20" data-feather="arrow-right-circle" style="font-size: 1px !important"></i></button>
+                                            </form>
+                                        </td>
                                     </tr>
                                     @endforeach
 
                                 </tbody>
                             </table>
                         </div>
-                        <button class="btn btn-primary mt-2">Review recent payments</button>
+                        <button class="btn btn-primary mt-3">Review recent payments</button>
                     </div>
                 </div>
             </div>

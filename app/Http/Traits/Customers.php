@@ -16,8 +16,8 @@ trait Customers {
             'data'=>[
                 'users'=>$this->total_users(),
                 'payments'=>$this->payments(),
-                'descP'=>$this->payments()->take(10),
-                'descU'=>$this->total_users()->take(10),
+                'descP'=>$this->paymentsD()->take(10),
+                'descU'=>$this->total_users()->take(11),
                 'subscription'=>$this->active_subscription()
             ],
             'stats'=> [

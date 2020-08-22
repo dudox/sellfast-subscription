@@ -1,77 +1,80 @@
 @extends('layouts.app')
+@section('title', 'Choose a plan')
+@section('content')
+<div class="page-content">
 
-
-@section('contents')
-<div class="row justify-content-center vh-100">
-    <div class="col-md-5">
-        <div class="row  my-3 ml-1">
-            <img src="{{asset('img/logo.png')}}" style="width: 70px; height: 70px" alt="">
+    <nav class="page-breadcrumb mt-2">
+        <div class="row justify-content-center">
+            <img src="{{asset('img/logo.png')}}" width="80px" height="80px" alt="">
         </div>
+    </nav>
 
-        <div class="row mt-3">
-            <div class="col-md-12">
-                <p class="font-weight-bolder mb-0" style="font-size: 19px">Choose a plan</p>
-                <p class="text-muted">Select any of the plans below for your instagram advert placement</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card border-0 bg-back" data-link="{{ route('subscription') }}" >
-                    <div class="card-body card2" style=" border-radius: 20px !important">
-                        <div class="row text-white">
-                            <div class="col-md-12">
-                                <h4 class="mb-0 param">SMART PLAN</h4>
-                                <p class="mt-0 mb-0 font-weight-bolder text-" style="font-size: 13px;">You get two adverts every month</p>
-                                <p class="badge px-0 text-" style="font-size: 12px;">You also enjoy one Instagram story every month</p>
+    <div class="row justify-content-center">
+        <div class="col-md-10 mb-2">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-center mb-2 mt-2">Choose a plan</h4>
+                    <p class="text-muted text-center mb-2 pb-2">Choose the features and functionality your business need today. Easily to upgrade as your business grows.</p>
+                    <div class="container px-0">
+                        <div class="row">
+                            <div class="col-md-6 stretch-card grid-margin grid-margin-md-0">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="text-center text-uppercase mt-3 mb-4 font-weight-light">SMART</h4>
+                                        <i data-feather="award" class="text-primary icon-xxl d-block mx-auto my-3"></i>
+                                        <h3 class="text-center font-weight-light">&#x20A6;600.00</h3>
+                                        <p class="text-muted text-center mb-2 font-weight-light">per month</p>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i data-feather="check" class="icon-md text-primary mr-2"></i>
+                                            <p>You get two advert post every month</p>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i data-feather="check" class="icon-md text-primary mr-2"></i>
+                                            <p>Your advert remain on our page for 30 days</p>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i data-feather="check" class="icon-md text-primary mr-2"></i>
+                                            <p>You enjoy one instagram story every month</p>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i data-feather="check" class="icon-md text-primary mr-2"></i>
+                                            <p>We let you know when customers request for price if you were not tagged</p>
+                                        </div>
+
+                                        <a href="{{ route('subscription') }}" class="btn btn-primary btn-block mt-4 py-3 text-uppercase d-flex"><span class="mx-auto mt-2 font-weight-bolder">Start smart plan</span> <span class="ml-auto" data-feather="arrow-right-circle"></span></a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="d-flex mt-4 text-white align-items-end">
-                            <div class="amount">
-                                <h6 class="mb-0">AMOUNT</h6>
-                                <p class="mt-0 font-weight-bolder mb-0" style="font-size: 20px">NGN 600.00</p>
-                            </div>
-                            <div class="ml-auto justify-content-end">
-                                <a  class="btn  rounded-pill text-white" style="font-size: 12px">PROCEED <i class="fa fa-long-arrow-right"></i></a>
+                            <div class="col-md-6 stretch-card grid-margin grid-margin-md-0">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="text-center text-uppercase mt-3 mb-4 font-weight-light">BASIC</h4>
+                                        <i data-feather="gift" class="text-success icon-xxl d-block mx-auto my-3"></i>
+                                        <h3 class="text-center font-weight-light">&#x20A6;500.00</h3>
+                                        <p class="text-muted text-center mb-2 font-weight-light">per month</p>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i data-feather="check" class="icon-md text-danger mr-2"></i>
+                                            <p>You get only one advert post </p>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i data-feather="check" class="icon-md text-danger mr-2"></i>
+                                            <p>Your advert remain on page for 3 days</p>
+                                        </div>
+                                        <br><br><br><br>
+                                        <a href="{{ route('basic') }}" class="btn btn-primary btn-block mt-4 py-3 text-uppercase d-flex"><span class="mx-auto mt-2 font-weight-bolder">Start basic plan</span> <span class="ml-auto" data-feather="arrow-right-circle"></span></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="row my-3">
-            <div class="col-md-12">
-                <div class="card border-0 bg-back" data-link="{{ route('basic') }}" >
-                    <div class="card-body card1" style=" border-radius: 20px !important">
-                        <div class="row text-white">
-                            <div class="col-md-12">
-                                <h4 class="param">BASIC PLAN</h4>
-                                <p class="mt-0 font-weight-bolder text-" style="font-size: 13px;">You pay for only one advert</p>
-                            </div>
-                        </div>
-                        <div class="d-flex mt-4 text-white align-items-end">
-                            <div class="amount">
-                                <h6 class="mb-0">AMOUNT</h6>
-                                <p class="mt-0 font-weight-bolder mb-0" style="font-size: 20px">NGN 500.00</p>
-                            </div>
-                            <div class="ml-auto justify-content-end">
-                                <a class="btn  rounded-pill text-white" style="font-size: 12px">PROCEED <i class="fa fa-long-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div style="position: relative; width:100%; bottom: 5px" class="row mt-2">
-            <div class="col-md-12 text-center">
-                <p class="font-weight-bolder">Powered by WorkPride</p>
-            </div>
-        </div>
-
     </div>
 </div>
+
+<!-- partial:../../partials/_footer.html -->
+
 @endsection
 
 @section('scripts')

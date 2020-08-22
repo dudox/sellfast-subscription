@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Customers;
 use App\Payments;
+use App\Subscription;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -14,10 +16,11 @@ class BasicController extends Controller
 {
     public function store(){
         try {
-            $custommer = Customers::where('username',request()->username)->first();
-            if(!$custommer){
-                $custommer = Customers::create([
-                    'username'=> request()->username
+            $customer = Customers::where('username',request()->username)->first();
+            if(empty($customer)){
+                $customer = Customers::create([
+                    'username'=> request()->username,
+                    'phone'=> request()->phone
                 ]);
             }
             $image = NULL;
@@ -27,16 +30,16 @@ class BasicController extends Controller
                 $compressed = Image::make($img->getRealPath())->resize(300, 200)->save( public_path('uploads/'. $filename ) );
                 $image = 'uploads/'.$compressed->basename;
             }
-            $receipt = $this->get_rand_alphanumeric(8);
+            $token = $this->get_rand_alphanumeric(8);
 
             Payments::create([
-                'userid'=>$custommer->id,
+                'customer_id'=>$customer->id,
+                'plan_id'=>request()->plan_id,
                 'proof'=>$image,
-                'amount'=>500,
-                'receiptID'=>$receipt
+                'token'=>$token
             ]);
 
-            return response()->json(['status'=>200,'message'=>$this->successPage($receipt)]);
+            return response()->json(['status'=>200,'message'=>$this->successPage($token)]);
         }
         catch(Throwable $th){
             throw $th;
@@ -49,10 +52,10 @@ class BasicController extends Controller
 
             <div class="d-flex align-items-center vh-100">
                 <a href="'.route("plans").'" class="border shadow-sm py-1 px-4 m-0 " style="border-radius: 5px; position: absolute; top: 5px; left:5px">
-                    <i class="fa fa-times fa-lg m-0 p-0  tempColor font-weight-light"></i> Close
+                    <span data-feather="arrow-left-circle"></span> Close
                 </a>
                 <div class="mx-auto px-3">
-                    <img  src="'.asset("img/logo.png").'" class="center" style="width:80px" />
+                    <img  src="'.asset("img/logo.png").'" class="center mb-3" style="width:50px" />
                     <h3 class="tempColor mt-3" style="font-weight: 900; font-size: 28px">Payment Successful!</h3>
                     <p class="text-muted">Your payment approval code is <b class="badge badge-dark h2" style="font-size:20px">'.$receipt.'</b></p>
                     <hr />
