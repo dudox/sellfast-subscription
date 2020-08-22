@@ -20,6 +20,10 @@
 
 <body  >
     <style>
+        body, .card {
+            background: #fff !important;
+            color: #000 !important
+        }
         @keyframes spinner-line-fade-more {
   0%, 100% {
     opacity: 0; /* minimum opacity */

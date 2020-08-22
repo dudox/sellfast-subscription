@@ -21,7 +21,7 @@ class PlansSeeder extends Seeder
             ],
             [
                 'name'=>'smart',
-                'amount'=>600,
+                'amount'=>700,
                 'validity'=>1
             ]
         ];
