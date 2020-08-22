@@ -35,7 +35,7 @@
             <div class="">
                 <div class="card-b">
                     <h4 class="text-center mb-2 mt-2">Choose a plan</h4>
-                    <p class="text-dark text-center mb-2 pb-2">Choose the right plan to advertise your products and services on Instagram.</p>
+                    <p class="text-dark text-center mb-2 pb-2">Select the right plan to advertise your products or services on Instagram.</p>
                     <div class="container px-0">
                         <div class="row">
                             <div class="col-md-6 stretch-card grid-margin grid-margin-md-0">
