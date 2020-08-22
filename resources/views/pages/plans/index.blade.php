@@ -59,6 +59,10 @@
                                         </div>
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-primary mr-2"></i>
+                                            <p>High conversion rate</p>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i data-feather="check" class="icon-md text-primary mr-2"></i>
                                             <p>We let you know when customers request for price if you were not tagged</p>
                                         </div>
 
@@ -68,8 +72,8 @@
                             <div class="col-md-6 stretch-card grid-margin grid-margin-md-0">
                                 <div class="card">
                                     <div class="card-body">
-                                        <a href="{{ route('basic') }}" class="btn btn-primary btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder">basic plan</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
-                                        <i data-feather="gift" class="text-success icon-xxl d-block mx-auto my-3"></i>
+                                        <a href="{{ route('basic') }}" class="btn btn-danger btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder">basic plan</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
+                                        <i data-feather="gift" class="text-danger icon-xxl d-block mx-auto my-3"></i>
                                         <h3 class="text-center font-weight-light mb-3">&#x20A6;500.00</h3>
                                         {{-- <p class="text-dark text-center mb-2 font-weight-bolder">per month</p> --}}
                                         <div class="d-flex align-items-center mb-2">
