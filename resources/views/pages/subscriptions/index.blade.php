@@ -35,20 +35,20 @@
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputUsername1"> Full Name</label>
-                                <input type="text" class="form-control bg-light border-0 text-dark"  id="exampleInputUsername1" name="name" autocomplete="off" placeholder="Full Name" required>
+                                <input type="text" class="form-control bg-light border-0 text-dark"  id="exampleInputUsername1" name="name" autocomplete="off" placeholder="" required>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1"> Phone number</label>
-                                <input type="text" class="form-control bg-light border-0 text-dark" id="exampleInputEmail1" name="phone" placeholder="Phone number" required>
+                                <input type="text" class="form-control bg-light border-0 text-dark" id="exampleInputEmail1" name="phone" placeholder="" required>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1"> Instagram name / handle</label>
-                                <input type="text" class="form-control bg-light border-0 text-dark" id="exampleInputEmail1" name="username" placeholder="Username" required>
+                                <input type="text" class="form-control bg-light border-0 text-dark" id="exampleInputEmail1" name="username" placeholder="" required>
                                 <input type="hidden" class="form-control bg-light" name="plan_id" value="1">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1"> Confirm instagram name / handle</label>
-                                <input type="text" class="form-control bg-light border-0 text-dark"  id="exampleInputEmail1" placeholder="Username" required>
+                                <input type="text" class="form-control bg-light border-0 text-dark"  id="exampleInputEmail1" placeholder="" required>
                                 <input type="hidden" class="form-control" name="plan_id" value="2">
                             </div>
                             <div class="form-check form-check-flat form-check-primary d-flex">
