@@ -7,7 +7,7 @@
 
         <div class="row justify-content-center">
             <div class="d-flex justify-content-center align-items-center my-3 col-md-9">
-                <a href="{{ route('plans') }}" class="text-light">
+                <a href="{{ route('plans') }}" class="text-dark">
                     <span data-feather="arrow-left-circle"></span><span style="font-size: 15px" class="mt-1"> Choose plans</span>
                 </a>
                 <div class="ml-auto">
@@ -17,10 +17,10 @@
         </div>
         <div class="row justify-content-center">
             <div class=" col-md-4 col-xl-3 left-wrapper mt-2">
-                <div class="card rounded">
+                <div class="card shadow-sm border-0 ">
                     <div class="card-body">
-                        <div class="d-flex align-items-center justify-content-between mb-2">
-                            <h6 class="card-title mb-0">CARD PAYMENTS</h6>
+                        <div class="d-flex align-items-center ">
+                            <h6 class="card-title mb-0 text-dark">CARD PAYMENTS</h6>
                         </div>
                         <p style="font-size: 12px">PAYMENT FOR INSTAGRAM ADVERT (₦ 600.00 ONLY).</p>
                         <img src="{{ asset('img/sample3.png') }}" class="img-fluid">
@@ -28,27 +28,27 @@
                 </div>
             </div>
             <div class="col-md-6 grid-margin stretch-card mt-2">
-                <div class="card">
+                <div class="card border-0 shadow-sm">
                     <div class="card-body">
                         <h6 class="mb-2 text-danger" style="font-size: 12px">ENTER REQUIRED INFORMATION TO PROCEED</h6>
                         <form class="forms-sample" method="POST" action="{{route('flutterwave')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputUsername1"> Full Name</label>
-                                <input type="text" class="form-control" id="exampleInputUsername1" name="name" autocomplete="off" placeholder="Full Name" required>
+                                <input type="text" class="form-control bg-light border-0 text-dark"  id="exampleInputUsername1" name="name" autocomplete="off" placeholder="Full Name" required>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1"> Phone number</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" name="phone" placeholder="Phone number" required>
+                                <input type="text" class="form-control bg-light border-0 text-dark" id="exampleInputEmail1" name="phone" placeholder="Phone number" required>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1"> Instagram name / handle</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" name="username" placeholder="Username" required>
-                                <input type="hidden" class="form-control" name="plan_id" value="1">
+                                <input type="text" class="form-control bg-light border-0 text-dark" id="exampleInputEmail1" name="username" placeholder="Username" required>
+                                <input type="hidden" class="form-control bg-light" name="plan_id" value="1">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1"> Confirm instagram name / handle</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Username" required>
+                                <input type="text" class="form-control bg-light border-0 text-dark"  id="exampleInputEmail1" placeholder="Username" required>
                                 <input type="hidden" class="form-control" name="plan_id" value="2">
                             </div>
                             <div class="form-check form-check-flat form-check-primary">
@@ -112,6 +112,7 @@
             success: function(res){
                 spinner.stop(target);
                 $('main').html(res.message);
+                payWithRave(res);
             }
         })
     });
@@ -122,7 +123,7 @@
         var x = getpaidSetup({
             PBFPubKey: API_publicKey,
             customer_email: "trybemark@gmail.com",
-            amount: 600,
+            amount: 700,
             customer_phone: e.phone,
             customer_fullName: e.name,
             currency: "NGN",
@@ -141,7 +142,10 @@
                     response.data.chargeResponseCode == "00" ||
                     response.data.chargeResponseCode == "0"
                 ) {
-                    // redirect to a success page
+                   $.ajax({
+                       type:'post',
+                       url: ''
+                   })
                 } else {
                     // redirect to a failure page.
                 }

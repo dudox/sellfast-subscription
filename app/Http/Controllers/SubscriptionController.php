@@ -26,16 +26,16 @@ class SubscriptionController extends Controller
                 'customer_id'=> $customer->id,
                 'plan_id'=> request()->plan_id,
                 'token'=>$token,
-                'status'=>'approved'
             ]);
-            if($payments){
-                Subscription::create([
-                    'receiptID'=>'',
-                    'referenceID'=>''
-                ]);
-                return response()->json(['status'=>'success'],200);
-            }
+            return response()->json(['status'=>'success','plan_id'=>$payments->plan_id,'customer_id'=>$customer->customer_id,'name'=>$customer->name,'phone'=>$customer->phone,'token'=>$payments->token],200);
         }
+
+
+
+
+
+
+
         catch(Throwable $th){
             throw $th;
         }

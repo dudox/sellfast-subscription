@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subscription extends Model
 {
-    protected $fillable = ['receiptID','referenceID'];
+    protected $fillable = ['customer_id','plan_id','due_on','subscription_status','auto_renewal'];
 
 
     public function customer(){
