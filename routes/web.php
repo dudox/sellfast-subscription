@@ -24,6 +24,8 @@ Route::get('subscription-plan-monthly-payment', 'PagesController@subscription')-
 Route::post('basic-plan-monthly-payment', 'BasicController@store')->name('basic.store');
 
 Route::post('flutterwave', 'SubscriptionController@payWithFlutterwave')->name('flutterwave');
+Route::post('flutterwave/validate', 'SubscriptionController@validatePayment')->name('flutterwave.validate');
+
 
 Route::group(['prefix' => 'control'], function () {
     Route::get('/','HomeController@index')->name('dashboard');

@@ -20,9 +20,9 @@
                 <div class="card shadow-sm border-0 ">
                     <div class="card-body">
                         <div class="d-flex align-items-center ">
-                            <h6 class="card-title mb-0 text-dark">CARD PAYMENTS</h6>
+                            <h6 class="card-title mb-0 text-dark">CARD PAYMENT</h6>
                         </div>
-                        <p style="font-size: 12px">PAYMENT FOR INSTAGRAM ADVERT (₦ 600.00 ONLY).</p>
+                        <p style="font-size: 12px">PAYMENT FOR INSTAGRAM ADVERT (₦ 700.00 ONLY).</p>
                         <img src="{{ asset('img/sample3.png') }}" class="img-fluid">
                     </div>
                 </div>
@@ -51,11 +51,12 @@
                                 <input type="text" class="form-control bg-light border-0 text-dark"  id="exampleInputEmail1" placeholder="Username" required>
                                 <input type="hidden" class="form-control" name="plan_id" value="2">
                             </div>
-                            <div class="form-check form-check-flat form-check-primary">
+                            <div class="form-check form-check-flat form-check-primary d-flex">
                                 <label class="form-check-label">
                                     <input type="checkbox" class="form-check-input"  required>
-                                    Terms and conditions
+
                                 </label>
+                                <a href="#" data-toggle="modal" data-target="#terms">Terms and conditions</a>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block py-3 mr-2">Continue  <div id="spinner"></div>
                             </button>
@@ -65,7 +66,22 @@
             </div>
         </div>
    </div>
-
+   <div id="terms" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+       <div class="modal-dialog modal-dialog-centered" role="document">
+           <div class="modal-content bg-white text-dark">
+               <div class="modal-body">
+                   <h5 class="text-center">Terms and conditions</h5>
+                   <br>
+                   <p><span class="badge badge-dark">1</span> You get two advert post every month</p>
+                   <p><span class="badge badge-dark">2</span> Your advert remain on our page for 30 days</p>
+                   <p><span class="badge badge-dark">3</span> You enjoy one instagram story every month</p>
+                   <p><span class="badge badge-dark">4</span> High conversion rate</p>
+                   <p><span class="badge badge-dark">5</span> We alert you to respond to customers who request for price if you were not tagged when they asked</p>
+                   <p><span class="badge badge-dark">6</span> You get billed N700 every month to enjoy 1,2,3,4,5 above</p>
+               </div>
+           </div>
+       </div>
+   </div>
 @endsection
 
 @section('scripts')
@@ -144,7 +160,12 @@
                 ) {
                    $.ajax({
                        type:'post',
-                       url: ''
+                       url: 'flutterwave/validate',
+                       data: {
+                           'customer_id':e.customer_id,
+                           'plan_id':e.plan_id,
+                           'payment_id':e.payment_id
+                       }
                    })
                 } else {
                     // redirect to a failure page.

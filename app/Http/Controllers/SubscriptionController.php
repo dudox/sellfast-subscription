@@ -27,7 +27,7 @@ class SubscriptionController extends Controller
                 'plan_id'=> request()->plan_id,
                 'token'=>$token,
             ]);
-            return response()->json(['status'=>'success','plan_id'=>$payments->plan_id,'customer_id'=>$customer->customer_id,'name'=>$customer->name,'phone'=>$customer->phone,'token'=>$payments->token],200);
+            return response()->json(['status'=>'success','plan_id'=>$payments->plan_id,'customer_id'=>$customer->id,'name'=>$customer->name,'phone'=>$customer->phone,'token'=>$payments->token,'payment_id'=>$payments->id],200);
         }
 
 
