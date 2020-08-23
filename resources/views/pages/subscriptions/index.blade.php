@@ -19,10 +19,10 @@
             <div class=" col-md-4 col-xl-3 left-wrapper mt-2">
                 <div class="card shadow-sm border-0 ">
                     <div class="card-body">
-                        <div class="d-flex align-items-center ">
+                        {{-- <div class="d-flex align-items-center ">
                             <h6 class="card-title mb-0 text-dark">CARD PAYMENT</h6>
-                        </div>
-                        <p style="font-size: 12px">PAYMENT FOR INSTAGRAM ADVERT (₦ 700.00 ONLY).</p>
+                        </div> --}}
+                        <p style="font-size: 12px">HOW TO PAY WITH CARD</p>
                         <img src="{{ asset('img/sample3.png') }}" class="img-fluid">
                     </div>
                 </div>
