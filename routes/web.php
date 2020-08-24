@@ -25,6 +25,8 @@ Route::post('basic-plan-monthly-payment', 'BasicController@store')->name('basic.
 
 Route::post('flutterwave', 'SubscriptionController@payWithFlutterwave')->name('flutterwave');
 Route::post('flutterwave/validate', 'SubscriptionController@validatePayment')->name('flutterwave.validate');
+Route::get('subscription/success/{id}', 'SubscriptionController@success')->name('subscription.success');
+
 
 
 Route::group(['prefix' => 'control'], function () {

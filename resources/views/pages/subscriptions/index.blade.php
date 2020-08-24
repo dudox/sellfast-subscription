@@ -86,7 +86,7 @@
 @endsection
 
 @section('scripts')
-<script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
+<script src="https://checkout.flutterwave.com/v3.js"></script>
 <script>
    let opts = {
         lines: 13,
@@ -137,43 +137,47 @@
     const API_publicKey = "FLWPUBK_TEST-a5438ff3183cc3619a0c946625eac5bd-X";
 
     function payWithRave(e) {
-        var x = getpaidSetup({
-            PBFPubKey: API_publicKey,
-            customer_email: "trybemark@gmail.com",
+        FlutterwaveCheckout({
+            public_key: API_publicKey,
+            tx_ref: e.token,
             amount: 700,
-            customer_phone: e.phone,
-            customer_fullName: e.name,
             currency: "NGN",
-            payment_method: "both",
-            txref: "rave-123456",
-            payment_plan: 6693,
-            meta: [{
-                metaname: "flightID",
-                metavalue: "AP1234"
-            }],
-            onclose: function() {},
-            callback: function(response) {
-                var txref = response.data.txRef; // collect flwRef returned and pass to a                   server page to complete status check.
-                console.log("This is the response returned after a charge", response);
-                if (
-                    response.data.chargeResponseCode == "00" ||
-                    response.data.chargeResponseCode == "0"
-                ) {
-                   $.ajax({
-                       type:'post',
-                       url: 'flutterwave/validate',
-                       data: {
-                           'customer_id':e.customer_id,
-                           'plan_id':e.plan_id,
-                           'payment_id':e.payment_id
-                       }
-                   })
-                } else {
-                    // redirect to a failure page.
-                }
+            payment_options: "card",
+            payment_plan:6787,
+            // redirect_url: // specified redirect URL
+            //     "https://callbacks.piedpiper.com/flutterwave.aspx?ismobile=34",
+            meta: {
+                consumer_id: 23,
+                consumer_mac: "92a3-912ba-1192a",
+            },
+            customer: {
+                email: "info@sellfast.ng",
+                phone_number: e.phone,
+                name: e.name,
+            },
+            callback: function(data) {
+                $.ajax({
+                    type:'POST',
+                    url: 'flutterwave/validate',
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        'customer_id':e.customer_id,
+                        'plan_id':e.plan_id,
+                        'payment_id':e.payment_id
+                    },
+                    success: function(tx){
 
-                x.close(); // use this to close the modal immediately after payment.
-            }
+                    }
+                });
+            },
+            onclose: function() {
+                window.location.href = "{{ route('subscription.success') }}";
+            },
+            customizations: {
+                title: "SellfastNG",
+                description: "Smart Plan",
+                logo: "http://127.0.0.1:8000/img/logo.png",
+            },
         });
     }
 </script>
