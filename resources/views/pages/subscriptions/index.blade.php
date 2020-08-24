@@ -171,7 +171,6 @@
                 });
             },
             onclose: function() {
-                window.location.href = "{{ route('subscription.success') }}";
             },
             customizations: {
                 title: "SellfastNG",
