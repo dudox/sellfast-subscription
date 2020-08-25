@@ -15,7 +15,7 @@ class SubscriptionController extends Controller
         try {
 
             $customer = Customers::where('username',request()->username)->first();
-            if(empty($customer)){
+            if(!$customer){
                 $customer = Customers::create([
                     'username'=> request()->username,
                     'name'=>request()->name,

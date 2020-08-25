@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 trait  ActiveSubscription {
     public function aSub(){
-        $payments  =  DB::table('payments')
+        $payments  =  DB::table('customers')
         ->select(DB::raw('COUNT(*) as total, MONTH(created_at) as month'))
         ->whereBetween('created_at',[Carbon::now()->startOfYear(), Carbon::now()->endOfYear()])
         ->groupBy('month')

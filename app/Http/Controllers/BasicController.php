@@ -17,7 +17,7 @@ class BasicController extends Controller
     public function store(){
         try {
             $customer = Customers::where('username',request()->username)->first();
-            if(empty($customer)){
+            if(!$customer){
                 $customer = Customers::create([
                     'username'=> request()->username,
                     'phone'=> request()->phone
