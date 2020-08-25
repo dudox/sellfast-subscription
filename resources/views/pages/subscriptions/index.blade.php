@@ -26,7 +26,7 @@
                         {{-- <div class="d-flex align-items-center ">
                             <h6 class="card-title mb-0 text-dark">CARD PAYMENT</h6>
                         </div> --}}
-                        <p style="font-size: 17px text-center">HOW TO PAY WITH CARD</p>
+                        <p style="font-size: 17px " class="text-center">HOW TO PAY WITH CARD</p>
                         <img src="{{ asset('img/sample3.png') }}" class="img-fluid">
                         <p class="text-danger text-center">Note: Your bank will ask you to confirm transaction with an OTP SMS</p>
                     </div>
