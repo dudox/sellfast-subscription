@@ -2,7 +2,11 @@
 @extends('layouts.app')
 @section('title','Smart plan')
 @section('content')
-
+<style>
+    .form-error {
+        color: #ff3366;
+    }
+</style>
    <div class="page-content">
 
         <div class="row justify-content-center">
@@ -22,34 +26,33 @@
                         {{-- <div class="d-flex align-items-center ">
                             <h6 class="card-title mb-0 text-dark">CARD PAYMENT</h6>
                         </div> --}}
-                        <p style="font-size: 17px">HOW TO PAY WITH CARD</p>
+                        <p style="font-size: 17px text-center">HOW TO PAY WITH CARD</p>
                         <img src="{{ asset('img/sample3.png') }}" class="img-fluid">
-                        <p class="text-danger">Note: Your bank will ask you to confirm transaction with an OTP SMS</p>
+                        <p class="text-danger text-center">Note: Your bank will ask you to confirm transaction with an OTP SMS</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 grid-margin stretch-card mt-2">
                 <div class="card border-0 shadow-sm">
                     <div class="card-body">
-                        <h6 class="mb-2 text-danger" style="font-size: 12px">ENTER REQUIRED INFORMATION TO PROCEED</h6>
-                        <form class="forms-sample" method="POST" action="{{route('flutterwave')}}" enctype="multipart/form-data">
+                        <h6 class="mb-2 text-danger text-center" style="font-size: 12px">ENTER REQUIRED INFORMATION TO PROCEED</h6>
+                        <form class="forms-sample" id="form" method="POST" action="{{route('flutterwave')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputUsername1"> Full Name</label>
-                                <input type="text" class="form-control bg-light border-0 text-dark"  id="exampleInputUsername1" name="name" autocomplete="off" placeholder="" required>
+                                <input type="text" class="form-control bg-light border-0 text-dark"  id="exampleInputUsername1" name="name" autocomplete="off" placeholder="" data-validation="required" data-validation-error-msg="Full name is required">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1"> Phone number</label>
-                                <input type="text" class="form-control bg-light border-0 text-dark" id="exampleInputEmail1" name="phone" placeholder="" required>
+                                <input type="text" class="form-control bg-light border-0 text-dark" id="exampleInputEmail1" name="phone" placeholder="" data-validation="required" data-validation-error-msg="Phone number is required">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1"> Instagram name / handle</label>
-                                <input type="text" class="form-control bg-light border-0 text-dark" id="exampleInputEmail1" name="username" placeholder="" required>
-                                <input type="hidden" class="form-control bg-light" name="plan_id" value="1">
+                                <input type="text" class="form-control bg-light border-0 text-dark" name="username_confirmation" data-validation="required"   placeholder="" data-validation-error-msg="Instagram name / handle is required">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1"> Confirm instagram name / handle</label>
-                                <input type="text" class="form-control bg-light border-0 text-dark"  id="exampleInputEmail1" placeholder="" required>
+                                <input type="text" class="form-control bg-light border-0 text-dark"  name="username" data-validation="confirmation" placeholder="" data-validation-error-msg="Instagram name / handle does not match">
                                 <input type="hidden" class="form-control" name="plan_id" value="2">
                             </div>
                             <div class="form-check form-check-flat form-check-primary d-flex">
@@ -87,6 +90,7 @@
 
 @section('scripts')
 <script src="https://checkout.flutterwave.com/v3.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.2.43/jquery.form-validator.min.js"></script>
 <script>
    let opts = {
         lines: 13,
@@ -112,29 +116,38 @@
     },
     target = document.getElementById('spinner'),
     spinner = new Spinner(opts);
-    $('form').on('submit', function (e) {
-        e.preventDefault();
-        $.ajax({
-            type: 'post',
-            url: $(this).attr('action'),
-            data: new FormData(this),
-            dataType: 'json',
-            contentType: false,
-            processData: false,
-            beforeSend: function(){
-                $('button.btn').attr("disabled","disabled");
-                $('button.btn').html("Processing. Please be patient");
-                spinner.spin(target);
-            },
-            success: function(res){
-                spinner.stop(target);
-                $('main').html(res.message);
-                payWithRave(res);
-            }
-        })
-    });
+    $.validate({
+        modules: 'security',
+        onSuccess: function($form){
+            let _data = new FormData(document.getElementById('form'));
+            $.ajax({
+                type: 'post',
+                url: $("#form").attr('action'),
+                data: _data,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                beforeSend: function(){
+                    $('button.btn').attr("disabled","disabled");
+                    $('button.btn').html("Processing. Please be patient");
+                    spinner.spin(target);
+                },
+                success: function(res){
+                    spinner.stop(target);
+                    $('main').html(res.message);
+                    payWithRave(res);
+                }
+            })
 
-    const API_publicKey = "FLWPUBK_TEST-a5438ff3183cc3619a0c946625eac5bd-X";
+            return false;
+
+        }
+
+
+    })
+
+
+    const API_publicKey = "FLWPUBK-f994141084671a0e0b40fe387e57527c-X";
 
     function payWithRave(e) {
         FlutterwaveCheckout({
@@ -143,7 +156,7 @@
             amount: 700,
             currency: "NGN",
             payment_options: "card",
-            payment_plan:6787,
+            payment_plan:21672,
             // redirect_url: // specified redirect URL
             //     "https://callbacks.piedpiper.com/flutterwave.aspx?ismobile=34",
             meta: {
@@ -175,7 +188,7 @@
             customizations: {
                 title: "SellfastNG",
                 description: "Smart Plan",
-                logo: "http://127.0.0.1:8000/img/logo.png",
+                logo: "https://payment.sellfast.ng/img/logo.png",
             },
         });
     }
