@@ -90,7 +90,6 @@
 
 @section('scripts')
 <script src="https://checkout.flutterwave.com/v3.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.2.43/jquery.form-validator.min.js"></script>
 <script>
    let opts = {
         lines: 13,

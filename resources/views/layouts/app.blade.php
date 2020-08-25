@@ -62,6 +62,17 @@
     opacity: 1;
   }
 }
+.blink {
+    animation: blink 1.2s infinite alternate;
+}
+@keyframes blink {
+   from {
+      opacity: 1;
+   }
+   to {
+      opacity: 0;
+   }
+ }
     </style>
     <main class="container">
         <div class="page-wrapper" >
@@ -90,6 +101,8 @@
 <script src="{{asset('assets/js/dashboard.js')}}"></script>
 <script src="{{asset('assets/js/datepicker.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.2.43/jquery.form-validator.min.js"></script>
+
 
 
     @yield('scripts')

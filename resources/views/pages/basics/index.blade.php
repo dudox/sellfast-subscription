@@ -2,7 +2,11 @@
 @extends('layouts.app')
 @section('title','Basic plan')
 @section('content')
-
+<style>
+    .form-error {
+        color: #ff3366;
+    }
+</style>
    <div class="page-content">
 
         <div class="row justify-content-center">
@@ -41,25 +45,25 @@
             <div class="col-md-6 grid-margin stretch-card mt-2">
                 <div class="card  shadow-sm border-0">
                     <div class="card-body shadow-sm">
-                        <h6 class="mb-2 text-danger" style="font-size: 12px">COMPLETE FORM BELOW AFTER MAKING TRANSFER</h6>
-                        <form class="forms-sample" method="POST" action="{{route('basic.store')}}" enctype="multipart/form-data">
+                        <h6 class="mb-2 text-danger text-center px-0 blink" style="font-size: 10px">COMPLETE FORM BELOW ONLY AFTER MAKING TRANSFER</h6>
+                        <form class="forms-sample" id="form" method="POST" action="{{route('basic.store')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputUsername1"> Instagram name / handle</label>
-                                <input type="text" class="form-control bg-light border-0 text-dark" id="exampleInputUsername1" name="username" autocomplete="off" placeholder="Username" required>
+                                <input type="text" class="form-control bg-light border-0 text-dark" id="exampleInputUsername1" name="username_confirmation" autocomplete="off" placeholder="Username" data-validation="required" data-validation-error-msg="Instagram name / handle is required">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1"> Confirm instagram name / handle</label>
-                                <input type="text" class="form-control bg-light border-0 text-dark" id="exampleInputEmail1" placeholder="Username" required>
+                                <input type="text" class="form-control bg-light border-0 text-dark" id="exampleInputEmail1" name="username" data-validation="confirmation" placeholder="Username" data-validation-error-msg="Instagram name / handle does not match" >
                                 <input type="hidden" class="form-control " name="plan_id" value="1">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1"> Phone number</label>
-                                <input type="text" class="form-control bg-light border-0 text-dark" id="exampleInputEmail1" name="phone" placeholder="Phone number" required>
+                                <input type="text" class="form-control bg-light border-0 text-dark" id="exampleInputEmail1" name="phone" placeholder="Phone number" data-validation="required" data-validation-error-msg="Phone number is required">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1"> Upload screenshot of payment</label>
-                                <input type="file" class="form-control bg-light border-0 text-dark" id="exampleInputPassword1" name="proof" autocomplete="off" placeholder="Password">
+                                <input type="file" class="form-control bg-light border-0 text-dark" id="exampleInputPassword1" name="proof" autocomplete="off" placeholder="Password" >
                             </div>
                             <div class="form-check form-check-flat form-check-primary">
                                 <label class="form-check-label">
@@ -104,25 +108,29 @@
     },
     target = document.getElementById('spinner'),
     spinner = new Spinner(opts);
-    $('form').on('submit', function (e) {
-        e.preventDefault();
-        $.ajax({
-            type: 'post',
-            url: $(this).attr('action'),
-            data: new FormData(this),
-            dataType: 'json',
-            contentType: false,
-            processData: false,
-            beforeSend: function(){
-                $('button.btn').attr("disabled","disabled");
-                $('button.btn').html("Processing. Please be patient");
-                spinner.spin(target);
-            },
-            success: function(res){
-                spinner.stop(target);
-                $('main').html(res.message);
-            }
-        })
+    $.validate({
+        modules: 'security',
+        onSuccess: function($form){
+            let _data = new FormData(document.getElementById('form'));
+            $.ajax({
+                type: 'post',
+                url: $("#form").attr('action'),
+                data: _data,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                beforeSend: function(){
+                    $('button.btn').attr("disabled","disabled");
+                    $('button.btn').html("Processing. Please be patient");
+                    spinner.spin(target);
+                },
+                success: function(res){
+                    spinner.stop(target);
+                    $('main').html(res.message);
+                }
+            })
+            return false;
+        }
     })
 </script>
 @endsection
