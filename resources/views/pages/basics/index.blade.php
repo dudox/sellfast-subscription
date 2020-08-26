@@ -24,7 +24,7 @@
                 <div class="card rounded   shadow-sm border-0">
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-between mb-2">
-                            <h6 class="card-title text-dark mb-0">BANK TRANSFER</h6>
+                            <h6 class="card-title text-dark mb-0">BANK TRANSFER DETAILS</h6>
                         </div>
 
                         <div class="mt-3">
