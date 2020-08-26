@@ -63,7 +63,7 @@
   }
 }
 .blink {
-    animation: blink 1.2s infinite alternate;
+    animation: blink 1s infinite ;
 }
 @keyframes blink {
    from {

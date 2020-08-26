@@ -26,7 +26,11 @@
                         <div class="d-flex align-items-center justify-content-between mb-2">
                             <h6 class="card-title text-dark mb-0">BANK TRANSFER</h6>
                         </div>
-                        <p style="font-size: 12px">TRANSFER DETAILS FOR INSTAGRAM ADVERT (₦ 500.00 ONLY).</p>
+
+                        <div class="mt-3">
+                            <label class="tx-11 font-weight-bold mb-0 text-uppercase">Amount:</label>
+                            <p class="text-dark">₦ 500.00 ONLY</p>
+                        </div>
                         <div class="mt-3">
                             <label class="tx-11 font-weight-bold mb-0 text-uppercase">Bank Name:</label>
                             <p class="text-dark">Guaranty Trust Bank</p>
@@ -45,7 +49,7 @@
             <div class="col-md-6 grid-margin stretch-card mt-2">
                 <div class="card  shadow-sm border-0">
                     <div class="card-body shadow-sm">
-                        <h6 class="mb-2 text-danger text-center px-0 blink" style="font-size: 10px">COMPLETE FORM BELOW ONLY AFTER MAKING TRANSFER</h6>
+                        <h6 class="mb-2 text-danger text-center px-0 blink font-weight-bolder" style="font-size: 15px">COMPLETE FORM BELOW ONLY AFTER MAKING TRANSFER</h6>
                         <form class="forms-sample" id="form" method="POST" action="{{route('basic.store')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
