@@ -69,7 +69,7 @@
                                         </span>
                                     </td>
                                     <td>{{ ucfirst($item->plan->name ?? 'No ') }} plan</td>
-                                    <td>@if(!empty($item->due_on)) {{date("D M, Y",strtotime($item->due_on))}} @else ... @endif</td>
+                                    <td>@if(!empty($item->due_on)) {{date("d M, Y",strtotime($item->due_on))}} @else ... @endif</td>
                                     <td>{{$item->auto_renewal ?? '...'}}</td>
                                     <td>
                                         <button data-toggle="modal" data-target="#options" data-subscriptionID="{{$item->id}}" class="btn btn-primary btn-block btn-sm p-0" ><i class="link-icon" width="20" data-feather="arrow-right-circle" style="font-size: 1px !important"></i></button>
