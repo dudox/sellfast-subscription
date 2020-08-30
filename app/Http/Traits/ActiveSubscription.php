@@ -13,7 +13,6 @@ trait  ActiveSubscription {
         ->whereBetween('created_at',[Carbon::now()->startOfYear(), Carbon::now()->endOfYear()])
         ->groupBy('month')
         ->get();
-
         $data = [0,0,0,0,0,0,0,0,0,0,0,0];
 
         foreach($payments as $key => $payment){
