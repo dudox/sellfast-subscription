@@ -154,7 +154,6 @@
             tx_ref: e.token,
             amount: 700,
             currency: "NGN",
-            payment_options: "card",
             payment_plan:21672,
             // redirect_url: // specified redirect URL
             //     "https://callbacks.piedpiper.com/flutterwave.aspx?ismobile=34",
