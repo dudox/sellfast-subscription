@@ -52,7 +52,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1"> Confirm instagram name / handle</label>
-                                <input type="text" class="form-control bg-light border-0 text-dark"  name="username" data-validation="confirmation" placeholder="" data-validation-error-msg="Instagram name / handle does not match">
+                                <input type="text" class="form-control bg-light border-0 text-dark"  name="username" data-validation="confirmation" placeholder="" data-validation-error-msg="Instagram name / handle does not match<br/>Ensure there is no space after typing your handle">
                                 <input type="hidden" class="form-control" name="plan_id" value="2">
                             </div>
                             <div class="form-check form-check-flat form-check-primary d-flex">
