@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call(function () {
             DB::table('subscriptions')->whereRaw('due_on < now()')->update(['subscription_status' => 'expired']);
-        });
+        })->daily();
     }
 
     /**
