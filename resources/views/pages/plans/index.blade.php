@@ -57,13 +57,14 @@
                                             <i data-feather="check" class="icon-md text-danger mr-2"></i>
                                             <p>You enjoy one instagram story every month</p>
                                         </div>
-                                        <div class="d-flex align-items-center mb-2">
-                                            <i data-feather="check" class="icon-md text-danger mr-2"></i>
-                                            <p>High conversion rate</p>
-                                        </div>
+
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-danger mr-2"></i>
                                             <p>We let you know when customers request for price if you were not tagged</p>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i data-feather="check" class="icon-md text-danger mr-2"></i>
+                                            <p>High conversion rate</p>
                                         </div>
 
                                     </div>

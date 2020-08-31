@@ -154,11 +154,12 @@
             tx_ref: e.token,
             amount: 700,
             currency: "NGN",
+            payment_method: "both",
             payment_plan:21672,
             // redirect_url: // specified redirect URL
             //     "https://callbacks.piedpiper.com/flutterwave.aspx?ismobile=34",
             meta: {
-                consumer_id: 23,
+                consumer_id: e.customer_id,
                 consumer_mac: "92a3-912ba-1192a",
             },
             customer: {
@@ -174,7 +175,8 @@
                         "_token": "{{ csrf_token() }}",
                         'customer_id':e.customer_id,
                         'plan_id':e.plan_id,
-                        'payment_id':e.payment_id
+                        'payment_id':e.payment_id,
+                        'phone':e.phone
                     },
                     success: function(tx){
 

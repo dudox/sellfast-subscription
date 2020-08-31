@@ -8,6 +8,7 @@ use Throwable;
 use App\Payments;
 use App\Subscription;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Http;
 
 class SubscriptionController extends Controller
 {
@@ -134,6 +135,7 @@ class SubscriptionController extends Controller
                 $subscription->auto_renewal = 'yes';
                 $subscription->save();
             }
+            $this->parsePost(request()->phone,"Your subscription to sellfast.ng advert for this month was successful. Two of your advert will be posted shortly. Thank you.");
             return  response()->json(['status'=>'success'], 200);
 
 
@@ -141,6 +143,16 @@ class SubscriptionController extends Controller
         catch(Throwable $th){
             throw $th;
         }
+    }
+
+    public function parsePost($phone,$message){
+        return Http::asForm()->post('http://login.betasms.com.ng/api/', [
+            'username'=> env('BETA_SMS_USERNAME'),
+            'password'=> env('BETA_SMS_SECRET'),
+            'sender'=> env('BETA_SMS_ID'),
+            'mobiles' => $phone,
+            'message'=>$message
+        ]);
     }
 
     public function successPage($receipt){
