@@ -19,17 +19,17 @@ class PaymentsController extends Controller
 
     }
     public function card(){
-        $payments = Payments::with('plans','subscription','customer')->where('plan_id',2)->get();
+        $payments = Payments::with('plans','subscription','customer')->where('plan_id',2)->orderBy('id','desc')->get();
         return view('controls.payments.card.index',compact('payments'));
     }
 
     public function bank(){
-        $payments = Payments::with('plans','subscription','customer')->where('plan_id',1)->get();
+        $payments = Payments::with('plans','subscription','customer')->where('plan_id',1)->orderBy('id','desc')->get();
         return view('controls.payments.bank.index',compact('payments'));
     }
 
     public function pending(){
-        $payments = Payments::with('plans','subscription','customer')->where('status','pending')->get();
+        $payments = Payments::with('plans','subscription','customer')->where('status','pending')->orderBy('id','desc')->get();
         return view('controls.payments.pending.index',compact('payments'));
     }
 

@@ -66,7 +66,7 @@ class HomeController extends Controller
         return view('controls.customers.index',compact('customers','progress','subscription'));
     }
     public function subscription(){
-        return Subscription::where('subscription_status','active')->get();
+        return Subscription::where('subscription_status','active')->orderBy('id','desc')->get();
     }
 
     public function compare_subscription(){
