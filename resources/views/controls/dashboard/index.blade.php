@@ -297,7 +297,7 @@
                                     <tr class="py-2">
                                         <td>{{$count++}}</td>
                                         <td>{{ $value->username }}</td>
-                                        <td>{{ date('d M, Y h:m:sa',$value->updated_at) }}</td>
+                                        <td>{{ date('d M, Y h:m:sa',strtotime($value->updated_at)) }}</td>
                                         <td>
                                             @if($value->status == "pending")
                                             <span class="badge badge-warning">{{$value->status}}</span>
