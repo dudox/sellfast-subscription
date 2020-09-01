@@ -32,6 +32,7 @@ trait  Revenue {
         ->join('plans', 'plans.id', '=', 'payments.plan_id')
         ->whereDate('payments.created_at', '=', Carbon::now()->toDateString())
         ->groupBy('hour')
+        ->where('payments.status','approved')
         ->get();
 
         $data = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -48,6 +49,7 @@ trait  Revenue {
         ->join('plans', 'plans.id', '=', 'payments.plan_id')
         ->whereBetween('payments.created_at',[Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
         ->groupBy('day')
+        ->where('payments.status','approved')
         ->get();
 
         $data = [0,0,0,0,0,0,0];
@@ -64,6 +66,7 @@ trait  Revenue {
         ->join('plans', 'plans.id', '=', 'payments.plan_id')
         ->whereBetween('payments.created_at',[Carbon::now()->startOfYear(), Carbon::now()->endOfYear()])
         ->groupBy('month')
+        ->where('payments.status','approved')
         ->get();
 
         $data = [0,0,0,0,0,0,0,0,0,0,0,0,0];
