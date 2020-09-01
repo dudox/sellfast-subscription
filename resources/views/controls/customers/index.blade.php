@@ -200,7 +200,7 @@
                                         @endif
                                     </td>
                                     <td>{{ ucfirst($item->subscription->plan->name ?? 'No ') }} plan</td>
-                                    <td>@if(!empty($item->subscription->due_on)) {{date("D M, Y",strtotime($item->subscription->due_on))}} @else ... @endif</td>
+                                    <td>@if(!empty($item->subscription->due_on)) {{date("d M, Y",strtotime($item->subscription->due_on))}} @else ... @endif</td>
                                     <td>{{$item->subscription->auto_renewal ?? '...'}}</td>
                                     <td>
                                         <button class="btn btn-primary btn-block btn-sm p-0" ><i class="link-icon" width="20" data-feather="arrow-right-circle" style="font-size: 1px !important"></i></button>
