@@ -60,7 +60,7 @@ class HomeController extends Controller
     }
 
     public function customersInfo(){
-        $customers = Customers::with('subscription.plan')->orderBy('id','asc')->get();
+        $customers = Customers::with('subscription.plan')->orderBy('id','desc')->get();
         $progress = $this->progress();
         $subscription = $this->subscription();
         return view('controls.customers.index',compact('customers','progress','subscription'));
