@@ -282,10 +282,10 @@
                                     <tr>
                                         <th class="pt-0">#</th>
                                         <th class="pt-0">Instagram Handle</th>
-                                        <th class="pt-0">Expires On</th>
+                                        <th class="pt-0">Paid On</th>
                                         <th class="pt-0">Status</th>
                                         <th class="pt-0">Type</th>
-                                        <th class="pt-0">Token</th>
+                                        EXPIRES ON	                   <th class="pt-0">Token</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -297,7 +297,7 @@
                                     <tr class="py-2">
                                         <td>{{$count++}}</td>
                                         <td>{{ $value->username }}</td>
-                                        <td>{{ $value->updated_at }}</td>
+                                        <td>{{ date('d M, Y h:m:sa',$value->updated_at) }}</td>
                                         <td>
                                             @if($value->status == "pending")
                                             <span class="badge badge-warning">{{$value->status}}</span>
