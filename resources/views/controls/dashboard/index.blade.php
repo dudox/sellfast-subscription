@@ -285,7 +285,7 @@
                                         <th class="pt-0">Paid On</th>
                                         <th class="pt-0">Status</th>
                                         <th class="pt-0">Type</th>
-                                        EXPIRES ON	                   <th class="pt-0">Token</th>
+                                        <th class="pt-0">Token</th>
                                         <th></th>
                                     </tr>
                                 </thead>
