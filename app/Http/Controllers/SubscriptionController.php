@@ -124,7 +124,7 @@ class SubscriptionController extends Controller
                 Subscription::create([
                     'customer_id'=>request()->customer_id,
                     'plan_id'=>request()->plan_id,
-                    'due_on'=>Carbon::now()->addMonth(),
+                    'due_on'=>Carbon::now()->addDays(30),
                     'subscription_status'=>'active',
                     'auto_renewal'=>'yes'
                 ]);

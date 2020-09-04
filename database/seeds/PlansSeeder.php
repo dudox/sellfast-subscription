@@ -16,13 +16,13 @@ class PlansSeeder extends Seeder
             [
                 'name'=>'basic',
                 'amount'=>500,
-                'validity'=>1
+                'validity'=>3
 
             ],
             [
                 'name'=>'smart',
                 'amount'=>700,
-                'validity'=>1
+                'validity'=>30
             ]
         ];
 

@@ -58,7 +58,7 @@ class PaymentsController extends Controller
             $newSubscription = Subscription::create([
                 'customer_id'=>$payments->customer_id,
                 'plan_id'=>$payments->plan_id,
-                'due_on'=>Carbon::now()->addMonth(1),
+                'due_on'=>Carbon::now()->addDays(3),
                 'subscription_status'=>'active',
                 'auto_renewal'=>'no'
             ]);
