@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Customers;
 use App\Payments;
+use App\Plans;
 use App\Subscription;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -40,13 +41,17 @@ class PaymentsController extends Controller
             $payments->save();
 
             $customer = Customers::where('id',$payments->customer_id)->first();
-
+            $plan = Plans::where('id',$payments->plan_id)->first();
+            $auto_renewal = "no";
+            if($plan->id == 2){
+                $auto_renewal = "yes";
+            }
             $subscription = Subscription::where('customer_id',$payments->customer_id)->first();
             if(!empty($subscription)){
                 $subscription->plan_id = $payments->plan_id;
-                $subscription->due_on = Carbon::now()->addMonth(1);
+                $subscription->due_on = Carbon::now()->addDays($plan->validity);
                 $subscription->subscription_status = 'active';
-                $subscription->auto_renewal = 'no';
+                $subscription->auto_renewal = $auto_renewal;
                 $subscription->save();
                 $sms = $this->parsePost($customer->phone,"Your subscription to sellfast.ng advert for this month has been renewed. Two of your advert will be posted shortly. Thank you.");
                 print($sms);
@@ -58,9 +63,9 @@ class PaymentsController extends Controller
             $newSubscription = Subscription::create([
                 'customer_id'=>$payments->customer_id,
                 'plan_id'=>$payments->plan_id,
-                'due_on'=>Carbon::now()->addDays(3),
+                'due_on'=>Carbon::now()->addDays($plan->validity),
                 'subscription_status'=>'active',
-                'auto_renewal'=>'no'
+                'auto_renewal'=>$auto_renewal
             ]);
 
             if($newSubscription){
