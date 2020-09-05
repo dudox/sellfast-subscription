@@ -48,12 +48,12 @@ class SubscriptionController extends Controller
     }
 
     public function active(){
-        $subscriptions = Subscription::with('customer','plan')->where('subscription_status','active')->orderById('desc')->get();
+        $subscriptions = Subscription::with('customer','plan')->where('subscription_status','active')->orderBy('id','desc')->get();
         return view('controls.subscriptions.active.index',compact('subscriptions'));
     }
 
     public function expired(){
-        $subscriptions = Subscription::with('customer','plan')->where('subscription_status','expired')->orderById('desc')->get();
+        $subscriptions = Subscription::with('customer','plan')->where('subscription_status','expired')->orderBy('id','desc')->get();
         return view('controls.subscriptions.expired.index',compact('subscriptions'));
     }
 
