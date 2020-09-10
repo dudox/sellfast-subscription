@@ -78,7 +78,7 @@
                                         {{-- <p class="text-dark text-center mb-2 font-weight-bolder">per month</p> --}}
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-success mr-2"></i>
-                                            <p>You get two advert post per month for two month</p>
+                                            <p>You get two advert post per month for two months</p>
                                         </div>
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-success mr-2"></i>
@@ -86,7 +86,7 @@
                                         </div>
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-success mr-2"></i>
-                                            <p>You enjoy one instagram story per month</p>
+                                            <p>You enjoy one instagram story per month for two months</p>
                                         </div>
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-success mr-2"></i>
