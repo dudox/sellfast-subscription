@@ -22,5 +22,9 @@ class PagesController extends Controller
         return view('pages.plans.index');
     }
 
+    public function smartonline(){
+        return view('pages.smart.index');
+    }
+
 
 }

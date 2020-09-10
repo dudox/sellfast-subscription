@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'PagesController@plans')->name('plans');
 Route::get('basic-plan-monthly-payment', 'PagesController@basic')->name('basic');
 Route::get('subscription-plan-monthly-payment', 'PagesController@subscription')->name('subscription');
+Route::get('subscription-plan-monthly-payment-bank', 'PagesController@smartonline')->name('smartonline');
 
 Route::post('basic-plan-monthly-payment', 'BasicController@store')->name('basic.store');
 
