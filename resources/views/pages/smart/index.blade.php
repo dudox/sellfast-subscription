@@ -86,6 +86,9 @@
 
 @endsection
 
+
+
+
 @section('scripts')
 <script>
    let opts = {
