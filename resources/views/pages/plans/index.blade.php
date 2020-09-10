@@ -78,7 +78,7 @@
                                         {{-- <p class="text-dark text-center mb-2 font-weight-bolder">per month</p> --}}
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-success mr-2"></i>
-                                            <p>You get two advert post for 1 month</p>
+                                            <p>You get two advert post per month</p>
                                         </div>
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-success mr-2"></i>
@@ -86,7 +86,7 @@
                                         </div>
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-success mr-2"></i>
-                                            <p>You enjoy one instagram story for 1 month</p>
+                                            <p>You enjoy one instagram story per month</p>
                                         </div>
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-success mr-2"></i>
@@ -102,7 +102,7 @@
                             <div class="col-md-4 stretch-card grid-margin grid-margin-md-0">
                                 <div class="card card  shadow-sm border-0">
                                     <div class="card-body">
-                                        <a href="{{ route('basic') }}" class="btn btn-primary btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder">smart plan</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
+                                        <a href="{{ route('basic') }}" class="btn btn-primary btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder">basic plan</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
                                         <i data-feather="gift" class="text-primary icon-xxl d-block mx-auto my-3"></i>
                                         <h3 class="text-center font-weight-light mb-3">&#x20A6;500.00</h3>
                                         {{-- <p class="text-dark text-center mb-2 font-weight-bolder">per month</p> --}}
