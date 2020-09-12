@@ -61,7 +61,7 @@
                                     <tr class="text-right">
                                         <td class="text-left">1</td>
                                         <td class="text-left">{{ucfirst($payment->plans->name)}}</td>
-                                        <td>@if($payment->plans->validity == 30) 1 month @elseif($payment->plans->validity == 60) 2 months @else 3 days @endif</td>
+                                        <td>@if($payment->plans->validity == 30) 1 month @elseif($payment->plans->validity == 60) 2 months @else {{$payment->plans->validity}} days @endif</td>
                                         <td>@convert($payment->plans->amount)</td>
                                         <td>
                                             @if($payment->status == 'approved')
