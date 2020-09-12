@@ -38,24 +38,73 @@
                     <p class="text-dark text-center mb-2 pb-2">Select the right plan to advertise your products or services on our Instagram page.</p>
                     <div class="container px-0">
                         <div class="row">
-                            <div class="col-md-4 stretch-card grid-margin grid-margin-md-0">
+                            <div class="col-md-6 stretch-card grid-margin grid-margin-md-0">
                                 <div class="card card  shadow-sm border-0">
                                     <div class="card-body">
-                                        <a href="{{ route('starterpack') }}" class="btn btn-danger btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder">smart plan starter pack</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
-                                        <i data-feather="award" class="text-danger icon-xxl d-block mx-auto my-3"></i>
+                                        <a href="{{ route('basic') }}" class="btn btn-primary btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder">basic plan (bank transfer)</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
+                                        <i data-feather="gift" class="text-primary icon-xxl d-block mx-auto my-3"></i>
+                                        <h3 class="text-center font-weight-light mb-3">&#x20A6;500.00</h3>
+                                        {{-- <p class="text-dark text-center mb-2 font-weight-bolder">per month</p> --}}
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i data-feather="check" class="icon-md text-primary mr-2"></i>
+                                            <p>You get only one advert post </p>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i data-feather="check" class="icon-md text-primary mr-2"></i>
+                                            <p>Your advert remain on page for <span class="font-weight-bolder">1 day</span></p>
+                                        </div>
+                                        <br><br><br><br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 stretch-card grid-margin grid-margin-md-0">
+                                <div class="card card  shadow-sm border-0">
+                                    <div class="card-body">
+                                        <a href="{{ route('subscription') }}" class="btn btn-warning btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder">Starter pack ( Online Payment )</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
+                                        <i data-feather="star" class="text-warning icon-xxl d-block mx-auto my-3"></i>
                                         <h3 class="text-center font-weight-light mb-3">&#x20A6;700.00</h3>
                                         {{-- <p class="text-dark text-center mb-2 font-weight-bolder">per month</p> --}}
                                         <div class="d-flex align-items-center mb-2">
-                                            <i data-feather="check" class="icon-md text-danger mr-2"></i>
+                                            <i data-feather="check" class="icon-md text-warning mr-2"></i>
                                             <p>You get two advert post</p>
                                         </div>
                                         <div class="d-flex align-items-center mb-2">
+                                            <i data-feather="check" class="icon-md text-warning mr-2"></i>
+                                            <p>Your advert remain on our page for <span class="font-weight-bolder"> 14 days </span></p>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i data-feather="check" class="icon-md text-warning mr-2"></i>
+                                            <p>You enjoy one instagram story</p>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i data-feather="check" class="icon-md text-warning mr-2"></i>
+                                            <p>We let you know when customers request for price if you were not tagged</p>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i data-feather="check" class="icon-md text-warning mr-2"></i>
+                                            <p>High conversion rate</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 stretch-card grid-margin grid-margin-md-0">
+                                <div class="card card  shadow-sm border-0">
+                                    <div class="card-body">
+                                        <a href="{{ route('starterpack') }}" class="btn btn-danger btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder"> premium pack ( Bank Transfer )</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
+                                        <i data-feather="award" class="text-danger icon-xxl d-block mx-auto my-3"></i>
+                                        <h3 class="text-center font-weight-light mb-3">&#x20A6;1000.00</h3>
+                                        {{-- <p class="text-dark text-center mb-2 font-weight-bolder">per month</p> --}}
+                                        <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-danger mr-2"></i>
-                                            <p>Your advert remain on our page for 14 days</p>
+                                            <p>You get two advert post for <span class="font-weight-bolder">1 month</span></p>
                                         </div>
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-danger mr-2"></i>
-                                            <p>You enjoy one instagram story for 14 days</p>
+                                            <p>Your advert remain on our page for <span class="font-weight-bolder">1 month</span></p>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i data-feather="check" class="icon-md text-danger mr-2"></i>
+                                            <p>You enjoy one instagram story</p>
                                         </div>
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-danger mr-2"></i>
@@ -68,10 +117,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 stretch-card grid-margin grid-margin-md-0">
+                            <div class="col-md-6 stretch-card grid-margin grid-margin-md-0">
                                 <div class="card card  shadow-sm border-0">
                                     <div class="card-body">
-                                        <a href="{{ route('smartonline') }}" class="btn btn-success btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder">smart plan premium pack</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
+                                        <a href="{{ route('smartonline') }}" class="btn btn-success btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder">VIP pack (bank transfer)</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
                                         <i data-feather="box" class="text-success icon-xxl d-block mx-auto my-3"></i>
                                         <h3 class="text-center font-weight-light mb-3">&#x20A6;1500.00</h3>
                                         {{-- <p class="text-dark text-center mb-2 font-weight-bolder">per month</p> --}}
@@ -81,7 +130,7 @@
                                         </div>
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-success mr-2"></i>
-                                            <p>Your advert remain on our page for 30 days</p>
+                                            <p>Your advert remain on our page for 60 days</p>
                                         </div>
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-success mr-2"></i>
@@ -95,25 +144,6 @@
                                             <i data-feather="check" class="icon-md text-success mr-2"></i>
                                             <p>High conversion rate</p>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 stretch-card grid-margin grid-margin-md-0">
-                                <div class="card card  shadow-sm border-0">
-                                    <div class="card-body">
-                                        <a href="{{ route('basic') }}" class="btn btn-primary btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder">basic plan bank transfer</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
-                                        <i data-feather="gift" class="text-primary icon-xxl d-block mx-auto my-3"></i>
-                                        <h3 class="text-center font-weight-light mb-3">&#x20A6;500.00</h3>
-                                        {{-- <p class="text-dark text-center mb-2 font-weight-bolder">per month</p> --}}
-                                        <div class="d-flex align-items-center mb-2">
-                                            <i data-feather="check" class="icon-md text-primary mr-2"></i>
-                                            <p>You get only one advert post </p>
-                                        </div>
-                                        <div class="d-flex align-items-center mb-2">
-                                            <i data-feather="check" class="icon-md text-primary mr-2"></i>
-                                            <p>Your advert remain on page for 1 day</p>
-                                        </div>
-                                        <br><br><br><br>
                                     </div>
                                 </div>
                             </div>

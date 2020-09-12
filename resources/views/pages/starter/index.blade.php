@@ -29,7 +29,7 @@
 
                         <div class="mt-3">
                             <label class="tx-11 font-weight-bold mb-0 text-uppercase">Amount:</label>
-                            <p class="text-dark">₦ 700.00 ONLY</p>
+                            <p class="text-dark">₦ 1000.00 ONLY</p>
                         </div>
                         <div class="mt-3">
                             <label class="tx-11 font-weight-bold mb-0 text-uppercase">Bank Name:</label>
@@ -59,7 +59,7 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1"> Confirm instagram name / handle</label>
                                 <input type="text" class="form-control bg-light border-0 text-dark" id="exampleInputEmail1" name="username" data-validation="confirmation" placeholder="Username" data-validation-error-msg="Instagram name / handle does not match" >
-                                <input type="hidden" class="form-control " name="plan_id" value="2">
+                                <input type="hidden" class="form-control " name="plan_id" value="4">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1"> Phone number</label>
