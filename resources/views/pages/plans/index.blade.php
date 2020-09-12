@@ -38,24 +38,7 @@
                     <p class="text-dark text-center mb-2 pb-2">Select the right plan to advertise your products or services on our Instagram page.</p>
                     <div class="container px-0">
                         <div class="row">
-                            <div class="col-md-6 stretch-card grid-margin grid-margin-0 mb-0">
-                                <div class="card card  shadow-sm border-0 mb-0">
-                                    <div class="card-body mb-0">
-                                        <a href="{{ route('basic') }}" class="btn btn-primary btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder">basic plan (bank transfer)</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
-                                        <i data-feather="gift" class="text-primary icon-xxl d-block mx-auto my-3"></i>
-                                        <h3 class="text-center font-weight-light mb-3">&#x20A6;500.00</h3>
-                                        {{-- <p class="text-dark text-center mb-2 font-weight-bolder">per month</p> --}}
-                                        <div class="d-flex align-items-center mb-2">
-                                            <i data-feather="check" class="icon-md text-primary mr-2"></i>
-                                            <p>You get only one advert post </p>
-                                        </div>
-                                        <div class="d-flex align-items-center mb-">
-                                            <i data-feather="check" class="icon-md text-primary mr-2"></i>
-                                            <p>Your advert remain on page for <span class="font-weight-bolder">1 day</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                             <div class="col-md-6 stretch-card grid-margin grid-margin-md-0 mt-0">
                                 <div class="card   shadow-sm border-0">
                                     <div class="card-body">
@@ -142,6 +125,24 @@
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-success mr-2"></i>
                                             <p>High conversion rate</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 stretch-card grid-margin grid-margin-0 mb-0">
+                                <div class="card card  shadow-sm border-0 mb-0">
+                                    <div class="card-body mb-0">
+                                        <a href="{{ route('basic') }}" class="btn btn-primary btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder">basic plan (bank transfer)</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
+                                        <i data-feather="gift" class="text-primary icon-xxl d-block mx-auto my-3"></i>
+                                        <h3 class="text-center font-weight-light mb-3">&#x20A6;500.00</h3>
+                                        {{-- <p class="text-dark text-center mb-2 font-weight-bolder">per month</p> --}}
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i data-feather="check" class="icon-md text-primary mr-2"></i>
+                                            <p>You get only one advert post </p>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-">
+                                            <i data-feather="check" class="icon-md text-primary mr-2"></i>
+                                            <p>Your advert remain on page for <span class="font-weight-bolder">1 day</span></p>
                                         </div>
                                     </div>
                                 </div>
