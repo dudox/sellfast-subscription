@@ -26,5 +26,10 @@ class PagesController extends Controller
         return view('pages.smart.index');
     }
 
+    public function starterpack(){
+        return view('pages.starter.index');
+    }
+
+
 
 }

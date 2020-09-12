@@ -39,23 +39,23 @@
                     <div class="container px-0">
                         <div class="row">
                             <div class="col-md-4 stretch-card grid-margin grid-margin-md-0">
-                                <div class="card  shadow-sm border-0">
-                                    <div class="card-body shadow-sm">
-                                        <a href="{{ route('subscription') }}" class="btn btn-danger btn-block mt-4 py-3  text-uppercase d-flex text-center"><span class="ml-auto pl-4 mt-2 font-weight-bolder">smart plan online payment</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
+                                <div class="card card  shadow-sm border-0">
+                                    <div class="card-body">
+                                        <a href="{{ route('starterpack') }}" class="btn btn-danger btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder">smart plan starter pack</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
                                         <i data-feather="award" class="text-danger icon-xxl d-block mx-auto my-3"></i>
-                                        <h3 class="text-center font-weight-light">&#x20A6;700.00</h3>
-                                        <p class="text-dark text-center mb-2 font-weight-bolder">per month</p>
+                                        <h3 class="text-center font-weight-light mb-3">&#x20A6;700.00</h3>
+                                        {{-- <p class="text-dark text-center mb-2 font-weight-bolder">per month</p> --}}
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-danger mr-2"></i>
-                                            <p>You get two advert post every month</p>
+                                            <p>You get two advert post</p>
                                         </div>
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-danger mr-2"></i>
-                                            <p>Your advert remain on our page for 30 days</p>
+                                            <p>Your advert remain on our page for 14 days</p>
                                         </div>
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-danger mr-2"></i>
-                                            <p>You enjoy one instagram story every month</p>
+                                            <p>You enjoy one instagram story for 14 days</p>
                                         </div>
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-danger mr-2"></i>
@@ -65,14 +65,13 @@
                                             <i data-feather="check" class="icon-md text-danger mr-2"></i>
                                             <p>High conversion rate</p>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-4 stretch-card grid-margin grid-margin-md-0">
                                 <div class="card card  shadow-sm border-0">
                                     <div class="card-body">
-                                        <a href="{{ route('smartonline') }}" class="btn btn-success btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder">smart plan bank transfer</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
+                                        <a href="{{ route('smartonline') }}" class="btn btn-success btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder">smart plan premium pack</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
                                         <i data-feather="box" class="text-success icon-xxl d-block mx-auto my-3"></i>
                                         <h3 class="text-center font-weight-light mb-3">&#x20A6;1500.00</h3>
                                         {{-- <p class="text-dark text-center mb-2 font-weight-bolder">per month</p> --}}
@@ -112,7 +111,7 @@
                                         </div>
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-primary mr-2"></i>
-                                            <p>Your advert remain on page for 3 days</p>
+                                            <p>Your advert remain on page for 1 day</p>
                                         </div>
                                         <br><br><br><br>
                                     </div>
