@@ -152,7 +152,7 @@
         FlutterwaveCheckout({
             public_key: API_publicKey,
             tx_ref: e.token,
-            amount: 700,
+            amount: 1000,
             currency: "NGN",
             payment_method: "both",
             payment_plan:21672,

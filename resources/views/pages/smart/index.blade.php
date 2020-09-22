@@ -29,7 +29,7 @@
 
                         <div class="mt-3">
                             <label class="tx-11 font-weight-bold mb-0 text-uppercase">Amount:</label>
-                            <p class="text-dark">₦ 1500.00 ONLY</p>
+                            <p class="text-dark">₦ 2000.00 ONLY</p>
                         </div>
                         <div class="mt-3">
                             <label class="tx-11 font-weight-bold mb-0 text-uppercase">Bank Name:</label>
