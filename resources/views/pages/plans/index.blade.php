@@ -140,7 +140,7 @@
                                     <div class="card-body mb-0">
                                         <h4 class="text-center mb-0">Basic pack</h4>
                                         <p class="text-center">Bank Transfer Only</p>
-                                        <i data-feather="award" class="text-warning icon-xxl d-block mx-auto my-3"></i>
+                                        <i data-feather="award" class="text-primary icon-xxl d-block mx-auto my-3"></i>
                                         <h3 class="text-center font-weight-light mb-3"><sup>&#x20A6;</sup> 500.00</h3>
                                         {{-- <p class="text-dark text-center mb-2 font-weight-bolder">per month</p> --}}
                                         <div class="d-flex align-items-center mb-2">
