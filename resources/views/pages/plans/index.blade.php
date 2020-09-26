@@ -39,13 +39,13 @@
                     <div class="container px-0">
                         <div class="row">
 
-                            <div class="col-md-6 stretch-card grid-margin grid-margin-md-0 mt-0">
+                            {{-- <div class="col-md-6 stretch-card grid-margin grid-margin-md-0 mt-0">
                                 <div class="card   shadow-sm border-0">
                                     <div class="card-body">
                                         <a href="{{ route('subscription') }}" class="btn btn-warning btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder">Starter pack ( Online Payment )</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
                                         <i data-feather="star" class="text-warning icon-xxl d-block mx-auto my-3"></i>
                                         <h3 class="text-center font-weight-light mb-3">&#x20A6;1000.00</h3>
-                                        {{-- <p class="text-dark text-center mb-2 font-weight-bolder">per month</p> --}}
+                                        <p class="text-dark text-center mb-2 font-weight-bolder">per month</p>
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-warning mr-2"></i>
                                             <p>You get two advert post</p>
@@ -68,43 +68,47 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-md-6 stretch-card grid-margin grid-margin-md-0">
-                                <div class="card card  shadow-sm border-0">
+                                <div class="card card  shadow-sm">
                                     <div class="card-body">
-                                        <a href="{{ route('starterpack') }}" class="btn btn-danger btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder"> premium pack ( Bank Transfer )</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
-                                        <i data-feather="award" class="text-danger icon-xxl d-block mx-auto my-3"></i>
-                                        <h3 class="text-center font-weight-light mb-3">&#x20A6;1500.00</h3>
+                                        <h4 class="text-center mb-0">Premium pack</h4>
+                                        <p class="text-center">Bank Transfer Only</p>
+                                        <i data-feather="award" class="text-warning icon-xxl d-block mx-auto my-3"></i>
+                                        <h3 class="text-center font-weight-light mb-3"><sup>&#x20A6;</sup> 1500.00</h3>
                                         {{-- <p class="text-dark text-center mb-2 font-weight-bolder">per month</p> --}}
                                         <div class="d-flex align-items-center mb-2">
-                                            <i data-feather="check" class="icon-md text-danger mr-2"></i>
+                                            <i data-feather="check" class="icon-md text-warning mr-2"></i>
                                             <p>You get two advert post for <span class="font-weight-bolder">30 days</span></p>
                                         </div>
                                         <div class="d-flex align-items-center mb-2">
-                                            <i data-feather="check" class="icon-md text-danger mr-2"></i>
+                                            <i data-feather="check" class="icon-md text-warning mr-2"></i>
                                             <p>Your advert remain on our page for <span class="font-weight-bolder">30 days</span></p>
                                         </div>
                                         <div class="d-flex align-items-center mb-2">
-                                            <i data-feather="check" class="icon-md text-danger mr-2"></i>
+                                            <i data-feather="check" class="icon-md text-warning mr-2"></i>
                                             <p>You enjoy one instagram story</p>
                                         </div>
                                         <div class="d-flex align-items-center mb-2">
-                                            <i data-feather="check" class="icon-md text-danger mr-2"></i>
+                                            <i data-feather="check" class="icon-md text-warning mr-2"></i>
                                             <p>We let you know when customers request for price if you were not tagged</p>
                                         </div>
                                         <div class="d-flex align-items-center mb-2">
-                                            <i data-feather="check" class="icon-md text-danger mr-2"></i>
+                                            <i data-feather="check" class="icon-md text-warning mr-2"></i>
                                             <p>High conversion rate</p>
                                         </div>
+                                        <a href="{{ route('starterpack') }}" class="btn btn-danger btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder"> Choose plan</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
+
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 stretch-card grid-margin grid-margin-md-0">
-                                <div class="card card  shadow-sm border-0">
+                                <div class="card card  shadow-sm">
                                     <div class="card-body">
-                                        <a href="{{ route('smartonline') }}" class="btn btn-success btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder">VIP pack (bank transfer)</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
-                                        <i data-feather="box" class="text-success icon-xxl d-block mx-auto my-3"></i>
-                                        <h3 class="text-center font-weight-light mb-3">&#x20A6;2000.00</h3>
+                                        <h4 class="text-center mb-0">VIP pack</h4>
+                                        <p class="text-center">Bank Transfer Only</p>
+                                        <i data-feather="award" class="text-success icon-xxl d-block mx-auto my-3"></i>
+                                        <h3 class="text-center font-weight-light mb-3"><sup>&#x20A6;</sup> 2000.00</h3>
                                         {{-- <p class="text-dark text-center mb-2 font-weight-bolder">per month</p> --}}
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-success mr-2"></i>
@@ -126,15 +130,18 @@
                                             <i data-feather="check" class="icon-md text-success mr-2"></i>
                                             <p>High conversion rate</p>
                                         </div>
+                                        <a href="{{ route('smartonline') }}" class="btn btn-success btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder">Choose plan</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
+
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 stretch-card grid-margin grid-margin-0 mb-0">
-                                <div class="card card  shadow-sm border-0 mb-0">
+                                <div class="card card  shadow-sm mb-0">
                                     <div class="card-body mb-0">
-                                        <a href="{{ route('basic') }}" class="btn btn-primary btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder">basic plan (bank transfer)</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
-                                        <i data-feather="gift" class="text-primary icon-xxl d-block mx-auto my-3"></i>
-                                        <h3 class="text-center font-weight-light mb-3">&#x20A6;500.00</h3>
+                                        <h4 class="text-center mb-0">Basic pack</h4>
+                                        <p class="text-center">Bank Transfer Only</p>
+                                        <i data-feather="award" class="text-warning icon-xxl d-block mx-auto my-3"></i>
+                                        <h3 class="text-center font-weight-light mb-3"><sup>&#x20A6;</sup> 500.00</h3>
                                         {{-- <p class="text-dark text-center mb-2 font-weight-bolder">per month</p> --}}
                                         <div class="d-flex align-items-center mb-2">
                                             <i data-feather="check" class="icon-md text-primary mr-2"></i>
@@ -144,6 +151,8 @@
                                             <i data-feather="check" class="icon-md text-primary mr-2"></i>
                                             <p>Your advert remain on page for <span class="font-weight-bolder">1 day</span></p>
                                         </div>
+                                        <a href="{{ route('basic') }}" class="btn btn-primary btn-block mt-4 py-3 text-uppercase d-flex"><span class="ml-auto pl-4 text-center mt-2 font-weight-bolder">Choose plan</span> <span class="ml-auto blink" data-feather="arrow-right-circle"></span></a>
+
                                     </div>
                                 </div>
                             </div>
