@@ -53,10 +53,9 @@ class PaymentsController extends Controller
                 $subscription->subscription_status = 'active';
                 $subscription->auto_renewal = $auto_renewal;
                 $subscription->save();
-                $sms = $this->parsePost($customer->phone,"Your subscription to sellfast.ng advert for this month has been renewed. Two of your advert will be posted shortly. Thank you.");
-                print($sms);
+                @$sms = $this->parsePost($customer->phone,"Your subscription to sellfast.ng advert for this month has been renewed. Two of your advert will be posted shortly. Thank you.");
                 if($sms['status'] == "OK"){
-                    return redirect()->back()->with(['message'=>'Subscription has been renewed. Congratulations']);
+                    return response()->json(['message'=>'Subscription has been renewed. Congratulations']);
                 }
             }
 
@@ -71,7 +70,7 @@ class PaymentsController extends Controller
             if($newSubscription){
                 $sms = $this->parsePost($customer->phone,"Your subscription to sellfast.ng advert for this month was successful. Two of your advert will be posted shortly. Thank you.");
                 if($sms['status'] == "OK"){
-                    return redirect()->back()->with(['message'=>"Subscription has been initiated. Congratulations"]);
+                    return response()->json(['message'=>"Subscription has been initiated. Congratulations"]);
                 }
             }
         }

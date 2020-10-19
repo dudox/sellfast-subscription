@@ -15,17 +15,17 @@ class PaymentsSeeder extends Seeder
     {
 
 
-        // $faker = Faker\Factory::create();
+        $faker = Faker\Factory::create();
 
-        // for($i = 0; $i < 300; $i++) {
-        //     Payments::create([
-        //         'customer_id'=>mt_rand(1,30),
-        //         'plan_id'=>mt_rand(1,2),
-        //         'token'=>mt_rand(1111111,8888888),
-        //         'status'=>'approved',
-        //         'created_at'=>$faker->dateTimeBetween('-120 days', '+30 days')
+        for($i = 0; $i < 300; $i++) {
+            Payments::create([
+                'customer_id'=>mt_rand(1,30),
+                'plan_id'=>mt_rand(1,2),
+                'token'=>mt_rand(1111111,8888888),
+                'status'=>'approved',
+                'created_at'=>$faker->dateTimeBetween('-120 days', '+30 days')
 
-        //     ]);
-        // }
+            ]);
+        }
     }
 }

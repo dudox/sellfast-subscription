@@ -55,7 +55,7 @@ trait Analytics {
 
     public function paymentsD(){
         return DB::table('payments')
-        ->selectRaw(' plans.name as planName, plans.amount as total, payments.token, payments.status, payments.updated_at, customers.name, customers.username')
+        ->selectRaw(' plans.name as planName, plans.amount as total, payments.token, payments.status, payments.updated_at, payments.proof, payments.id as payID, customers.name, customers.username')
         ->join('plans','plans.id','payments.plan_id')
         ->join('customers','customers.id','payments.customer_id')
         ->orderBy('payments.id','desc')->get();

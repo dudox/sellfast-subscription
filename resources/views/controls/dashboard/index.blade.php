@@ -286,6 +286,7 @@
                                         <th class="pt-0">Status</th>
                                         <th class="pt-0">Type</th>
                                         <th class="pt-0">Token</th>
+                                        <th>Proof</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -307,13 +308,22 @@
                                         </td>
                                         <td>{{ucfirst($value->planName)}} Plan</td>
                                         <td>#{{ucfirst($value->token)}}</td>
+                                        <td>{!! $value->proof ? '<a id="checkProof" data-toggle="modal" data-target="#proof" data-image="'.$value->proof.'" href="#" ><i class="link-icon text-success" width="20" data-feather="image" style="font-size: 1px !important"></i></a>' : '' !!}</td>
+
                                         <td>
-                                            <form action="{{ route('control.search') }}" method="GET">
-                                                @csrf
-                                                <input type="hidden" name="data" value="{{ $value->token }}">
-                                                <button type="submit" class="btn btn-primary btn-block btn-sm p-0" ><i class="link-icon" width="20" data-feather="arrow-right-circle" style="font-size: 1px !important"></i></button>
-                                            </form>
+                                            <div class="d-flex">
+                                                <form class="col" action="{{ route('control.search') }}" method="GET">
+                                                    @csrf
+                                                    <input type="hidden" name="data" value="{{ $value->token }}">
+                                                    <button type="submit" class="btn btn-primary btn-block btn-sm p-0 " ><i class="link-icon" width="16" data-feather="arrow-right-circle" style="font-size: 1px !important"></i></button>
+                                                </form>
+                                                @if($value->status != "approved")
+                                                <button data-id="{{$value->payID}}" class="btn btn-success btn-block btn-sm p-0 col approve" ><i class="link-icon" width="16" data-feather="check-circle" style="font-size: 1px !important"></i></button>
+                                                @endif
+                                            </div>
+
                                         </td>
+
                                     </tr>
                                     @endforeach
 
@@ -327,10 +337,47 @@
         </div> <!-- row -->
 
     </div>
+    <div class="modal fade" id="proof" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" align="center">
+                    <img class="img-fluid" id="img_logo" src="http://bootsnipp.com/img/logo.jpg">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('scripts')
 <script src="{{asset('js/charts/revenue.js')}}"></script>
 <script src="{{asset('js/charts/active-subscription.js')}}"></script>
 <script src="{{asset('js/charts/plan-progress.js')}}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+    let url = "{{url('/')}}/";
+    $("#proof").on('show.bs.modal', function(e){
+        $(this).find('img').attr("src",url+e.relatedTarget.dataset.image)
+    })
 
+    $(".approve").on('click', function(e){
+        e.preventDefault();
+        let _this = $(this);
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('control.payments.approve') }}",
+            data: {
+                "_token": "{{ csrf_token() }}",
+                "id":e.currentTarget.dataset.id
+            },
+            success: function(tx){
+                toastr.success('Payment has been approved');
+                $(_this).closest('tr').fadeOut();
+
+            },
+        })
+
+    })
+</script>
 @endsection
